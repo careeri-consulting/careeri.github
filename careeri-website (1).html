@@ -1,0 +1,1913 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CAREERI | F&B Consulting</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;500;600;700;800;900&family=Poppins:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --black: #0F0F0F;
+    --white: #FFFFFF;
+    --green: #1F7A63;
+    --green-light: #27a082;
+    --green-dark: #165c4a;
+    --green-muted: rgba(31,122,99,0.12);
+    --gray: #1a1a1a;
+    --gray2: #2a2a2a;
+    --gray3: #888;
+    --gray4: #555;
+    --border: rgba(255,255,255,0.08);
+    --font-ar: 'Cairo', sans-serif;
+    --font-en: 'Poppins', sans-serif;
+    --radius: 16px;
+    --radius-sm: 10px;
+    --transition: 0.3s cubic-bezier(0.4,0,0.2,1);
+    --shadow: 0 20px 60px rgba(0,0,0,0.4);
+    --shadow-sm: 0 4px 20px rgba(0,0,0,0.25);
+    --shadow-green: 0 8px 32px rgba(31,122,99,0.3);
+  }
+  *{margin:0;padding:0;box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    background:var(--black);
+    color:var(--white);
+    font-family:var(--font-ar);
+    overflow-x:hidden;
+    line-height:1.7;
+  }
+  body.en{font-family:var(--font-en);direction:ltr;}
+  .en .ar-only{display:none!important;}
+  .en .en-only{display:block!important;}
+  .ar .ar-only{display:block!important;}
+  .ar .en-only{display:none!important;}
+  .en-only{display:none;}
+
+  /* SCROLLBAR */
+  ::-webkit-scrollbar{width:4px;}
+  ::-webkit-scrollbar-track{background:var(--black);}
+  ::-webkit-scrollbar-thumb{background:var(--green);border-radius:2px;}
+
+  /* UTILITIES */
+  .container{max-width:1200px;margin:0 auto;padding:0 24px;}
+  .section{padding:100px 0;}
+  .section-sm{padding:60px 0;}
+  .tag{
+    display:inline-flex;align-items:center;gap:8px;
+    background:var(--green-muted);color:var(--green-light);
+    border:1px solid rgba(31,122,99,0.3);
+    border-radius:100px;padding:6px 18px;font-size:13px;font-weight:600;
+    letter-spacing:.5px;margin-bottom:20px;
+  }
+  .tag::before{content:'';width:6px;height:6px;background:var(--green-light);border-radius:50%;animation:pulse 2s infinite;}
+  @keyframes pulse{0%,100%{opacity:1;}50%{opacity:.3;}}
+  h1,h2,h3,h4{line-height:1.25;font-weight:800;}
+  .heading-xl{font-size:clamp(2.2rem,5vw,4.2rem);}
+  .heading-lg{font-size:clamp(1.8rem,3.5vw,3rem);}
+  .heading-md{font-size:clamp(1.4rem,2.5vw,2.2rem);}
+  .text-green{color:var(--green-light);}
+  .text-muted{color:var(--gray3);}
+  .underline-green{
+    text-decoration:none;
+    background:linear-gradient(var(--green),var(--green)) no-repeat 0 100%;
+    background-size:100% 3px;
+    padding-bottom:4px;
+  }
+  /* BUTTONS */
+  .btn{
+    display:inline-flex;align-items:center;justify-content:center;gap:10px;
+    padding:14px 30px;border-radius:12px;font-weight:700;font-size:15px;
+    cursor:pointer;border:none;text-decoration:none;transition:var(--transition);
+    font-family:inherit;letter-spacing:.3px;
+  }
+  .btn-primary{
+    background:var(--green);color:var(--white);
+    box-shadow:var(--shadow-green);
+  }
+  .btn-primary:hover{background:var(--green-light);transform:translateY(-2px);box-shadow:0 12px 40px rgba(31,122,99,0.5);}
+  .btn-outline{
+    background:transparent;color:var(--white);
+    border:1.5px solid rgba(255,255,255,0.2);
+  }
+  .btn-outline:hover{border-color:var(--green);color:var(--green-light);transform:translateY(-2px);}
+  .btn-whatsapp{
+    background:#25D366;color:var(--white);
+    box-shadow:0 8px 30px rgba(37,211,102,0.3);
+  }
+  .btn-whatsapp:hover{background:#20bc59;transform:translateY(-2px);}
+  .btn-ghost{background:rgba(255,255,255,0.05);color:var(--white);}
+  .btn-ghost:hover{background:rgba(255,255,255,0.1);}
+  .btn-sm{padding:10px 22px;font-size:14px;}
+  .btn-lg{padding:18px 40px;font-size:17px;}
+
+  /* NAV */
+  nav{
+    position:fixed;top:0;left:0;right:0;z-index:1000;
+    background:rgba(15,15,15,0.85);backdrop-filter:blur(20px);
+    border-bottom:1px solid var(--border);
+    transition:var(--transition);
+  }
+  .nav-inner{
+    max-width:1200px;margin:0 auto;padding:0 24px;
+    display:flex;align-items:center;justify-content:space-between;
+    height:72px;
+  }
+  .logo{
+    font-size:22px;font-weight:900;letter-spacing:1px;color:var(--white);
+    text-decoration:none;display:flex;align-items:center;gap:10px;
+  }
+  .logo span{color:var(--green-light);}
+  .logo-badge{
+    background:var(--green);color:var(--white);
+    font-size:9px;font-weight:700;padding:3px 7px;border-radius:4px;
+    letter-spacing:1px;
+  }
+  .nav-links{
+    display:flex;align-items:center;gap:4px;list-style:none;
+    flex-wrap:wrap;
+  }
+  .nav-links a{
+    color:rgba(255,255,255,0.7);text-decoration:none;font-size:13.5px;
+    font-weight:500;padding:8px 12px;border-radius:8px;
+    transition:var(--transition);
+  }
+  .nav-links a:hover,.nav-links a.active{color:var(--white);background:rgba(255,255,255,0.06);}
+  .nav-actions{display:flex;align-items:center;gap:10px;}
+  .lang-toggle{
+    background:rgba(255,255,255,0.06);border:1px solid var(--border);
+    color:var(--white);padding:7px 14px;border-radius:8px;
+    cursor:pointer;font-size:13px;font-weight:600;transition:var(--transition);
+    font-family:inherit;
+  }
+  .lang-toggle:hover{background:rgba(255,255,255,0.12);border-color:var(--green);}
+  .hamburger{
+    display:none;flex-direction:column;gap:5px;cursor:pointer;padding:5px;
+  }
+  .hamburger span{
+    width:24px;height:2px;background:var(--white);border-radius:2px;transition:var(--transition);
+  }
+  .mobile-menu{
+    display:none;position:fixed;top:72px;left:0;right:0;bottom:0;z-index:999;
+    background:rgba(15,15,15,0.97);backdrop-filter:blur(20px);
+    flex-direction:column;padding:30px 24px;gap:8px;overflow-y:auto;
+  }
+  .mobile-menu.open{display:flex;}
+  .mobile-menu a{
+    color:var(--white);text-decoration:none;font-size:18px;font-weight:600;
+    padding:14px 16px;border-radius:10px;transition:var(--transition);
+    border-bottom:1px solid var(--border);
+  }
+  .mobile-menu a:hover{background:var(--green-muted);color:var(--green-light);}
+
+  /* HERO */
+  .hero{
+    min-height:100vh;display:flex;align-items:center;
+    background:radial-gradient(ellipse 80% 60% at 50% 0%, rgba(31,122,99,0.18) 0%, transparent 70%);
+    padding-top:72px;position:relative;overflow:hidden;
+  }
+  .hero::before{
+    content:'';position:absolute;inset:0;
+    background:url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%231F7A63' fill-opacity='0.04'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+    opacity:.6;
+  }
+  .hero-content{position:relative;z-index:1;max-width:780px;}
+  .hero-eyebrow{
+    display:inline-flex;align-items:center;gap:10px;
+    background:var(--green-muted);border:1px solid rgba(31,122,99,0.3);
+    border-radius:100px;padding:8px 20px;margin-bottom:32px;
+    font-size:13px;font-weight:600;color:var(--green-light);
+  }
+  .hero-eyebrow .dot{width:8px;height:8px;background:var(--green-light);border-radius:50%;animation:pulse 2s infinite;}
+  .hero h1{
+    font-size:clamp(2.4rem,6vw,5rem);font-weight:900;
+    line-height:1.15;margin-bottom:24px;
+  }
+  .hero h1 .highlight{
+    color:var(--green-light);
+    position:relative;
+  }
+  .hero-sub{
+    font-size:clamp(1rem,2vw,1.25rem);color:rgba(255,255,255,0.65);
+    max-width:600px;margin-bottom:44px;font-weight:400;
+  }
+  .hero-cta{display:flex;gap:14px;flex-wrap:wrap;margin-bottom:60px;}
+  .hero-stats{
+    display:flex;gap:40px;flex-wrap:wrap;
+    padding-top:40px;border-top:1px solid var(--border);
+  }
+  .stat-item{}
+  .stat-num{font-size:2.4rem;font-weight:900;color:var(--green-light);}
+  .stat-label{font-size:13px;color:var(--gray3);margin-top:2px;}
+  .hero-visual{
+    position:absolute;right:-100px;top:50%;transform:translateY(-50%);
+    width:500px;height:500px;
+    background:radial-gradient(circle, rgba(31,122,99,0.15) 0%, transparent 70%);
+    border-radius:50%;
+    display:flex;align-items:center;justify-content:center;
+    pointer-events:none;
+  }
+  .hero-visual-ring{
+    width:350px;height:350px;border-radius:50%;
+    border:1px solid rgba(31,122,99,0.2);
+    display:flex;align-items:center;justify-content:center;
+    animation:rotate 20s linear infinite;
+  }
+  @keyframes rotate{from{transform:rotate(0deg);}to{transform:rotate(360deg);}}
+  .hero-visual-ring2{
+    width:250px;height:250px;border-radius:50%;
+    border:1px solid rgba(31,122,99,0.15);
+    display:flex;align-items:center;justify-content:center;
+    animation:rotate 15s linear infinite reverse;
+  }
+  .hero-visual-core{
+    width:160px;height:160px;border-radius:50%;
+    background:var(--green-muted);border:1px solid rgba(31,122,99,0.4);
+    display:flex;align-items:center;justify-content:center;
+    font-size:3rem;
+  }
+
+  /* MARQUEE */
+  .marquee-section{
+    padding:20px 0;border-top:1px solid var(--border);border-bottom:1px solid var(--border);
+    overflow:hidden;background:rgba(31,122,99,0.04);
+  }
+  .marquee-track{
+    display:flex;gap:60px;animation:marquee 20s linear infinite;
+    white-space:nowrap;
+  }
+  .marquee-item{
+    display:flex;align-items:center;gap:12px;
+    color:rgba(255,255,255,0.4);font-size:13px;font-weight:600;letter-spacing:1px;
+  }
+  .marquee-item .dot{width:4px;height:4px;background:var(--green);border-radius:50%;}
+  @keyframes marquee{from{transform:translateX(0);}to{transform:translateX(-50%)}}
+
+  /* CARDS */
+  .card{
+    background:var(--gray);border:1px solid var(--border);
+    border-radius:var(--radius);padding:32px;
+    transition:var(--transition);position:relative;overflow:hidden;
+  }
+  .card:hover{border-color:rgba(31,122,99,0.4);transform:translateY(-4px);box-shadow:var(--shadow-green);}
+  .card::before{
+    content:'';position:absolute;top:0;left:0;right:0;height:2px;
+    background:linear-gradient(90deg,transparent,var(--green),transparent);
+    opacity:0;transition:var(--transition);
+  }
+  .card:hover::before{opacity:1;}
+  .card-icon{
+    width:56px;height:56px;background:var(--green-muted);
+    border:1px solid rgba(31,122,99,0.3);border-radius:14px;
+    display:flex;align-items:center;justify-content:center;
+    font-size:24px;margin-bottom:20px;
+  }
+  .card h3{font-size:1.2rem;margin-bottom:12px;}
+  .card p{color:var(--gray3);font-size:14.5px;line-height:1.7;}
+
+  /* GRID */
+  .grid-2{display:grid;grid-template-columns:repeat(2,1fr);gap:24px;}
+  .grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;}
+  .grid-4{display:grid;grid-template-columns:repeat(4,1fr);gap:24px;}
+
+  /* SECTION HEADER */
+  .section-header{text-align:center;max-width:700px;margin:0 auto 60px;}
+  .section-header h2{margin-bottom:16px;}
+  .section-header p{color:var(--gray3);font-size:16px;}
+
+  /* PROBLEMS */
+  .problems-section{background:var(--gray);}
+  .problem-card{
+    background:var(--black);border:1px solid var(--border);
+    border-radius:var(--radius);padding:28px;
+    display:flex;align-items:flex-start;gap:16px;
+    transition:var(--transition);
+  }
+  .problem-card:hover{border-color:rgba(255,80,80,0.3);transform:translateY(-3px);}
+  .problem-icon{
+    width:48px;height:48px;min-width:48px;
+    background:rgba(220,50,50,0.1);border:1px solid rgba(220,50,50,0.2);
+    border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:22px;
+  }
+  .problem-card h3{font-size:1.05rem;margin-bottom:6px;}
+  .problem-card p{color:var(--gray3);font-size:13.5px;}
+
+  /* SERVICES */
+  .service-card{
+    background:var(--gray);border:1px solid var(--border);
+    border-radius:var(--radius);padding:36px 28px;
+    transition:var(--transition);position:relative;overflow:hidden;
+  }
+  .service-card:hover{border-color:rgba(31,122,99,0.5);transform:translateY(-4px);box-shadow:var(--shadow-green);}
+  .service-num{
+    font-size:3.5rem;font-weight:900;color:rgba(31,122,99,0.15);
+    position:absolute;top:20px;right:24px;line-height:1;font-family:var(--font-en);
+  }
+  .service-icon{font-size:2rem;margin-bottom:18px;}
+  .service-card h3{font-size:1.1rem;margin-bottom:10px;}
+  .service-card p{color:var(--gray3);font-size:14px;}
+  .service-tag{
+    display:inline-block;background:var(--green-muted);color:var(--green-light);
+    border-radius:6px;padding:3px 10px;font-size:12px;font-weight:600;margin-top:14px;
+  }
+
+  /* SEGMENTATION */
+  .seg-section{background:var(--gray);}
+  .seg-card{
+    background:var(--black);border:1px solid var(--border);
+    border-radius:var(--radius);padding:48px 40px;
+    transition:var(--transition);
+  }
+  .seg-card:hover{border-color:rgba(31,122,99,0.4);box-shadow:var(--shadow-green);}
+  .seg-badge{
+    display:inline-flex;gap:8px;align-items:center;
+    background:var(--green-muted);border:1px solid rgba(31,122,99,0.3);
+    border-radius:8px;padding:6px 14px;font-size:12px;font-weight:700;
+    color:var(--green-light);margin-bottom:20px;letter-spacing:.5px;
+  }
+  .seg-card h3{font-size:1.6rem;margin-bottom:12px;}
+  .seg-card .desc{color:var(--gray3);margin-bottom:24px;}
+  .seg-list{list-style:none;display:flex;flex-direction:column;gap:10px;margin-bottom:28px;}
+  .seg-list li{
+    display:flex;align-items:center;gap:10px;font-size:14.5px;color:rgba(255,255,255,0.8);
+  }
+  .seg-list li::before{
+    content:'✓';width:22px;height:22px;min-width:22px;
+    background:var(--green-muted);color:var(--green-light);
+    border-radius:50%;display:flex;align-items:center;justify-content:center;
+    font-size:12px;font-weight:700;
+  }
+
+  /* BLOG */
+  .blog-card{
+    background:var(--gray);border:1px solid var(--border);
+    border-radius:var(--radius);overflow:hidden;transition:var(--transition);
+  }
+  .blog-card:hover{border-color:rgba(31,122,99,0.4);transform:translateY(-4px);}
+  .blog-img{
+    height:200px;background:linear-gradient(135deg,rgba(31,122,99,0.3),rgba(15,15,15,0.8));
+    display:flex;align-items:center;justify-content:center;font-size:3rem;
+    border-bottom:1px solid var(--border);
+  }
+  .blog-content{padding:28px;}
+  .blog-meta{
+    display:flex;align-items:center;gap:12px;margin-bottom:14px;
+    color:var(--gray3);font-size:12.5px;
+  }
+  .blog-cat{
+    background:var(--green-muted);color:var(--green-light);
+    border-radius:6px;padding:2px 10px;font-size:12px;font-weight:600;
+  }
+  .blog-content h3{font-size:1.05rem;margin-bottom:10px;line-height:1.4;}
+  .blog-content p{color:var(--gray3);font-size:13.5px;line-height:1.7;margin-bottom:18px;}
+  .blog-read{
+    color:var(--green-light);font-size:13.5px;font-weight:600;
+    text-decoration:none;display:flex;align-items:center;gap:6px;transition:var(--transition);
+  }
+  .blog-read:hover{gap:10px;}
+
+  /* CTA BAND */
+  .cta-band{
+    background:linear-gradient(135deg,rgba(31,122,99,0.2),rgba(15,15,15,0));
+    border:1px solid rgba(31,122,99,0.2);border-radius:24px;
+    padding:80px 60px;text-align:center;position:relative;overflow:hidden;
+  }
+  .cta-band::before{
+    content:'';position:absolute;top:-100px;left:50%;transform:translateX(-50%);
+    width:400px;height:400px;
+    background:radial-gradient(circle,rgba(31,122,99,0.15) 0%,transparent 70%);
+    pointer-events:none;
+  }
+  .cta-band h2{font-size:clamp(1.8rem,3.5vw,3rem);margin-bottom:16px;}
+  .cta-band p{color:var(--gray3);font-size:16px;max-width:500px;margin:0 auto 36px;}
+  .cta-buttons{display:flex;gap:14px;justify-content:center;flex-wrap:wrap;}
+
+  /* ABOUT PAGE */
+  .about-hero{
+    padding:140px 0 80px;
+    background:radial-gradient(ellipse 80% 60% at 50% 0%, rgba(31,122,99,0.15) 0%, transparent 70%);
+  }
+  .about-grid{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center;}
+  .about-visual{
+    background:var(--gray);border:1px solid var(--border);border-radius:var(--radius);
+    padding:40px;display:flex;flex-direction:column;gap:20px;
+  }
+  .value-item{
+    display:flex;align-items:center;gap:16px;padding:16px;
+    background:var(--black);border:1px solid var(--border);border-radius:var(--radius-sm);
+  }
+  .value-icon{
+    width:44px;height:44px;min-width:44px;background:var(--green-muted);
+    border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:20px;
+  }
+  .value-item h4{font-size:.9rem;margin-bottom:2px;}
+  .value-item p{font-size:12.5px;color:var(--gray3);}
+
+  /* TRAINING */
+  .training-card{
+    background:var(--gray);border:1px solid var(--border);border-radius:var(--radius);
+    padding:32px;transition:var(--transition);
+  }
+  .training-card:hover{border-color:rgba(31,122,99,0.4);transform:translateY(-4px);}
+  .training-level{
+    display:inline-flex;align-items:center;gap:6px;
+    font-size:11px;font-weight:700;letter-spacing:1px;
+    padding:4px 12px;border-radius:100px;margin-bottom:16px;
+  }
+  .level-basic{background:rgba(59,130,246,0.15);color:#60a5fa;border:1px solid rgba(59,130,246,0.2);}
+  .level-advanced{background:rgba(234,179,8,0.15);color:#facc15;border:1px solid rgba(234,179,8,0.2);}
+  .level-pro{background:rgba(31,122,99,0.15);color:var(--green-light);border:1px solid rgba(31,122,99,0.2);}
+  .training-duration{
+    display:flex;align-items:center;gap:6px;color:var(--gray3);font-size:13px;margin-top:14px;
+  }
+
+  /* QUIZ PAGE */
+  .quiz-hero{
+    padding:140px 0 60px;text-align:center;
+    background:radial-gradient(ellipse 80% 60% at 50% 0%, rgba(31,122,99,0.18) 0%, transparent 70%);
+  }
+  .quiz-benefits{
+    display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin:48px 0;
+  }
+  .quiz-benefit{
+    background:var(--gray);border:1px solid var(--border);border-radius:var(--radius-sm);
+    padding:24px;text-align:center;
+  }
+  .quiz-benefit .icon{font-size:2rem;margin-bottom:12px;}
+  .quiz-benefit h4{font-size:.95rem;margin-bottom:6px;}
+  .quiz-benefit p{color:var(--gray3);font-size:13px;}
+  .typeform-wrapper{
+    border-radius:var(--radius);overflow:hidden;
+    border:1px solid var(--border);
+    height:600px;
+  }
+
+  /* BOOKING */
+  .booking-card{
+    background:var(--gray);border:1px solid var(--border);border-radius:var(--radius);
+    padding:48px;max-width:700px;margin:0 auto;text-align:center;
+  }
+  .booking-icon{
+    width:80px;height:80px;background:var(--green-muted);border-radius:20px;
+    display:flex;align-items:center;justify-content:center;font-size:36px;
+    margin:0 auto 24px;border:1px solid rgba(31,122,99,0.3);
+  }
+  .contact-method{
+    display:flex;align-items:center;gap:16px;padding:20px 24px;
+    background:var(--black);border:1px solid var(--border);border-radius:var(--radius-sm);
+    margin-bottom:12px;transition:var(--transition);text-decoration:none;color:var(--white);
+  }
+  .contact-method:hover{border-color:rgba(31,122,99,0.4);}
+  .contact-method-icon{
+    width:48px;height:48px;min-width:48px;border-radius:12px;
+    display:flex;align-items:center;justify-content:center;font-size:22px;
+  }
+  .contact-method-text h4{font-size:.9rem;margin-bottom:2px;}
+  .contact-method-text p{color:var(--gray3);font-size:13px;}
+
+  /* FOOTER */
+  footer{
+    background:var(--gray);border-top:1px solid var(--border);padding:60px 0 30px;
+  }
+  .footer-grid{
+    display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:48px;margin-bottom:48px;
+  }
+  .footer-brand{}
+  .footer-logo{font-size:20px;font-weight:900;color:var(--white);margin-bottom:12px;}
+  .footer-logo span{color:var(--green-light);}
+  .footer-desc{color:var(--gray3);font-size:13.5px;margin-bottom:20px;max-width:300px;}
+  .footer-social{display:flex;gap:10px;}
+  .social-btn{
+    width:38px;height:38px;background:rgba(255,255,255,0.05);
+    border:1px solid var(--border);border-radius:8px;
+    display:flex;align-items:center;justify-content:center;
+    text-decoration:none;font-size:16px;transition:var(--transition);
+  }
+  .social-btn:hover{background:var(--green-muted);border-color:rgba(31,122,99,0.4);}
+  .footer-col h4{font-size:.85rem;font-weight:700;color:rgba(255,255,255,0.5);letter-spacing:1px;margin-bottom:16px;text-transform:uppercase;}
+  .footer-links{list-style:none;display:flex;flex-direction:column;gap:8px;}
+  .footer-links a{color:rgba(255,255,255,0.6);text-decoration:none;font-size:13.5px;transition:var(--transition);}
+  .footer-links a:hover{color:var(--green-light);}
+  .footer-bottom{
+    padding-top:24px;border-top:1px solid var(--border);
+    display:flex;align-items:center;justify-content:space-between;
+    color:var(--gray3);font-size:12.5px;flex-wrap:wrap;gap:12px;
+  }
+
+  /* PAGE SYSTEM */
+  .page{display:none;}
+  .page.active{display:block;}
+
+  /* WHATSAPP FLOAT */
+  .whatsapp-float{
+    position:fixed;bottom:30px;
+    right:30px;
+    z-index:900;
+    background:#25D366;color:var(--white);
+    width:58px;height:58px;border-radius:50%;
+    display:flex;align-items:center;justify-content:center;
+    font-size:26px;text-decoration:none;
+    box-shadow:0 6px 30px rgba(37,211,102,0.5);
+    transition:var(--transition);
+    animation:float 3s ease-in-out infinite;
+  }
+  @keyframes float{0%,100%{transform:translateY(0);}50%{transform:translateY(-8px);}}
+  .whatsapp-float:hover{transform:scale(1.12)!important;animation:none;}
+  body.ar .whatsapp-float{right:auto;left:30px;}
+
+  /* SCROLL REVEAL */
+  .reveal{opacity:0;transform:translateY(30px);transition:opacity .6s ease,transform .6s ease;}
+  .reveal.visible{opacity:1;transform:none;}
+
+  /* RESPONSIVE */
+  @media(max-width:1024px){
+    .grid-4{grid-template-columns:repeat(2,1fr);}
+    .footer-grid{grid-template-columns:1fr 1fr;}
+    .about-grid{grid-template-columns:1fr;}
+    .hero-visual{display:none;}
+  }
+  @media(max-width:768px){
+    .nav-links{display:none;}
+    .hamburger{display:flex;}
+    .grid-3{grid-template-columns:1fr;}
+    .grid-2{grid-template-columns:1fr;}
+    .quiz-benefits{grid-template-columns:1fr;}
+    .footer-grid{grid-template-columns:1fr;}
+    .cta-band{padding:50px 24px;}
+    .hero-stats{gap:24px;}
+    .section{padding:70px 0;}
+    .hero{padding-top:100px;}
+  }
+
+  /* PAGE TRANSITIONS */
+  @keyframes fadeIn{from{opacity:0;transform:translateY(15px);}to{opacity:1;transform:none;}}
+  .page.active{animation:fadeIn .4s ease;}
+</style>
+</head>
+<body class="ar">
+
+<!-- NAV -->
+<nav id="navbar">
+  <div class="nav-inner">
+    <a href="#" class="logo" onclick="showPage('home')">
+      CAREERI <span>F&B</span>
+      <span class="logo-badge">CONSULTING</span>
+    </a>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="#" onclick="showPage('home')" class="ar-only">الرئيسية</a><a href="#" onclick="showPage('home')" class="en-only">Home</a></li>
+      <li><a href="#" onclick="showPage('about')" class="ar-only">عننا</a><a href="#" onclick="showPage('about')" class="en-only">About</a></li>
+      <li><a href="#" onclick="showPage('services')" class="ar-only">الخدمات</a><a href="#" onclick="showPage('services')" class="en-only">Services</a></li>
+      <li><a href="#" onclick="showPage('training')" class="ar-only">التدريب</a><a href="#" onclick="showPage('training')" class="en-only">Training</a></li>
+      <li><a href="#" onclick="showPage('small')" class="ar-only">للمطاعم الصغيرة</a><a href="#" onclick="showPage('small')" class="en-only">Small Restaurants</a></li>
+      <li><a href="#" onclick="showPage('chains')" class="ar-only">للسلاسل</a><a href="#" onclick="showPage('chains')" class="en-only">Chains & Investors</a></li>
+      <li><a href="#" onclick="showPage('insights')" class="ar-only">المقالات</a><a href="#" onclick="showPage('insights')" class="en-only">Insights</a></li>
+      <li><a href="#" onclick="showPage('contact')" class="ar-only">تواصل</a><a href="#" onclick="showPage('contact')" class="en-only">Contact</a></li>
+    </ul>
+    <div class="nav-actions">
+      <button class="lang-toggle" onclick="toggleLang()" id="langBtn">EN</button>
+      <a href="https://form.typeform.com/to/F0duFgNU" target="_blank" class="btn btn-primary btn-sm ar-only">ابدأ الاختبار</a>
+      <a href="https://form.typeform.com/to/F0duFgNU" target="_blank" class="btn btn-primary btn-sm en-only">Start Quiz</a>
+      <div class="hamburger" onclick="toggleMenu()" id="hamburger">
+        <span></span><span></span><span></span>
+      </div>
+    </div>
+  </div>
+</nav>
+
+<!-- MOBILE MENU -->
+<div class="mobile-menu" id="mobileMenu">
+  <a href="#" onclick="showPage('home');toggleMenu()">🏠 <span class="ar-only">الرئيسية</span><span class="en-only">Home</span></a>
+  <a href="#" onclick="showPage('about');toggleMenu()">👥 <span class="ar-only">عننا</span><span class="en-only">About</span></a>
+  <a href="#" onclick="showPage('services');toggleMenu()">⚙️ <span class="ar-only">الخدمات</span><span class="en-only">Services</span></a>
+  <a href="#" onclick="showPage('training');toggleMenu()">🎓 <span class="ar-only">التدريب</span><span class="en-only">Training</span></a>
+  <a href="#" onclick="showPage('small');toggleMenu()">🍽️ <span class="ar-only">المطاعم الصغيرة</span><span class="en-only">Small Restaurants</span></a>
+  <a href="#" onclick="showPage('chains');toggleMenu()">🏢 <span class="ar-only">السلاسل والمستثمرين</span><span class="en-only">Chains & Investors</span></a>
+  <a href="#" onclick="showPage('insights');toggleMenu()">📖 <span class="ar-only">المقالات</span><span class="en-only">Insights</span></a>
+  <a href="#" onclick="showPage('quiz');toggleMenu()">📋 <span class="ar-only">الاختبار</span><span class="en-only">Quiz</span></a>
+  <a href="#" onclick="showPage('booking');toggleMenu()">📅 <span class="ar-only">احجز استشارة</span><span class="en-only">Book a Call</span></a>
+  <a href="#" onclick="showPage('contact');toggleMenu()">📞 <span class="ar-only">تواصل معنا</span><span class="en-only">Contact</span></a>
+</div>
+
+<!-- ============ HOME PAGE ============ -->
+<div class="page active" id="page-home">
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="container">
+      <div class="hero-content">
+        <div class="hero-eyebrow">
+          <span class="dot"></span>
+          <span class="ar-only">استشارات F&B محترفة — القاهرة وأبعد</span>
+          <span class="en-only">Professional F&B Consulting — Cairo & Beyond</span>
+        </div>
+        <h1 class="ar-only">
+          بنساعد المطاعم <br>
+          <span class="highlight">اللي شغالة…</span><br>
+          بس مش بتكسب
+        </h1>
+        <h1 class="en-only">
+          We Help Restaurants <br>
+          <span class="highlight">That Run…</span><br>
+          But Don't Profit
+        </h1>
+        <p class="hero-sub ar-only">بنحل مشاكل التشغيل اللي بتضيع أرباحك من غير ما تحس — بسيستم واضح ونتايج حقيقية</p>
+        <p class="hero-sub en-only">We fix the operational issues silently draining your profits — with clear systems and real results</p>
+        <div class="hero-cta">
+          <a href="https://form.typeform.com/to/F0duFgNU" target="_blank" class="btn btn-primary btn-lg ar-only">
+            <span>🎯</span> ابدأ الاختبار المجاني
+          </a>
+          <a href="https://form.typeform.com/to/F0duFgNU" target="_blank" class="btn btn-primary btn-lg en-only">
+            <span>🎯</span> Start Free Quiz
+          </a>
+          <a href="#" onclick="showPage('booking')" class="btn btn-outline btn-lg ar-only">📅 احجز استشارة</a>
+          <a href="#" onclick="showPage('booking')" class="btn btn-outline btn-lg en-only">📅 Book a Call</a>
+          <a href="https://wa.me/201044008477" target="_blank" class="btn btn-whatsapp btn-lg">
+            <span>💬</span> WhatsApp
+          </a>
+        </div>
+        <div class="hero-stats">
+          <div class="stat-item">
+            <div class="stat-num">+50</div>
+            <div class="stat-label ar-only">مطعم استفاد</div>
+            <div class="stat-label en-only">Restaurants Helped</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-num">+30%</div>
+            <div class="stat-label ar-only">متوسط زيادة الأرباح</div>
+            <div class="stat-label en-only">Avg. Profit Increase</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-num">6+</div>
+            <div class="stat-label ar-only">سنين خبرة</div>
+            <div class="stat-label en-only">Years Experience</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="hero-visual">
+      <div class="hero-visual-ring">
+        <div class="hero-visual-ring2">
+          <div class="hero-visual-core">🍽️</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- MARQUEE -->
+  <div class="marquee-section">
+    <div class="marquee-track">
+      <span class="marquee-item"><span class="dot"></span>Operations Audit</span>
+      <span class="marquee-item"><span class="dot"></span>Staff Training</span>
+      <span class="marquee-item"><span class="dot"></span>Menu Optimization</span>
+      <span class="marquee-item"><span class="dot"></span>SOP Development</span>
+      <span class="marquee-item"><span class="dot"></span>Quality Systems</span>
+      <span class="marquee-item"><span class="dot"></span>Cost Control</span>
+      <span class="marquee-item"><span class="dot"></span>F&B Consulting</span>
+      <span class="marquee-item"><span class="dot"></span>Chain Expansion</span>
+      <span class="marquee-item"><span class="dot"></span>Operations Audit</span>
+      <span class="marquee-item"><span class="dot"></span>Staff Training</span>
+      <span class="marquee-item"><span class="dot"></span>Menu Optimization</span>
+      <span class="marquee-item"><span class="dot"></span>SOP Development</span>
+      <span class="marquee-item"><span class="dot"></span>Quality Systems</span>
+      <span class="marquee-item"><span class="dot"></span>Cost Control</span>
+      <span class="marquee-item"><span class="dot"></span>F&B Consulting</span>
+      <span class="marquee-item"><span class="dot"></span>Chain Expansion</span>
+    </div>
+  </div>
+
+  <!-- PROBLEMS -->
+  <section class="section problems-section">
+    <div class="container">
+      <div class="section-header">
+        <span class="tag ar-only">🔍 المشاكل اللي بنشوفها</span>
+        <span class="tag en-only">🔍 Problems We See</span>
+        <h2 class="heading-lg ar-only">مطعمك في أنهي من دول؟</h2>
+        <h2 class="heading-lg en-only">Which of These Sound Familiar?</h2>
+        <p class="ar-only">المشاكل دي مش عادية — هي اللي بتسرق أرباحك كل يوم بدون ما تحس</p>
+        <p class="en-only">These aren't normal problems — they're silently stealing your profits every single day</p>
+      </div>
+      <div class="grid-3">
+        <div class="problem-card reveal">
+          <div class="problem-icon">😤</div>
+          <div>
+            <h3 class="ar-only">زحمة بدون مكسب</h3>
+            <h3 class="en-only">Busy But Not Profitable</h3>
+            <p class="ar-only">الطلبات كتير والشغل مش واقف — بس في آخر الشهر الأرقام مش بتعبر عن المجهود</p>
+            <p class="en-only">Orders are flowing, staff are running — but month-end numbers don't reflect the effort</p>
+          </div>
+        </div>
+        <div class="problem-card reveal">
+          <div class="problem-icon">👥</div>
+          <div>
+            <h3 class="ar-only">فريق غير كفء</h3>
+            <h3 class="en-only">Inefficient Team</h3>
+            <p class="ar-only">دوران عالي، أداء منخفض، وكل شوية بتبدأ من الأول في تدريب ناس جدد</p>
+            <p class="en-only">High turnover, low performance, and you're always re-training new staff from scratch</p>
+          </div>
+        </div>
+        <div class="problem-card reveal">
+          <div class="problem-icon">📉</div>
+          <div>
+            <h3 class="ar-only">جودة غير ثابتة</h3>
+            <h3 class="en-only">Inconsistent Quality</h3>
+            <p class="ar-only">العميل اتجنن في الأكل مرة وجه تاني لقاه مختلف — دا بيحرق سمعة المطعم</p>
+            <p class="en-only">A customer loved the food once, came back and it was different — that's killing your reputation</p>
+          </div>
+        </div>
+        <div class="problem-card reveal">
+          <div class="problem-icon">🗑️</div>
+          <div>
+            <h3 class="ar-only">هدر في التشغيل</h3>
+            <h3 class="en-only">Operational Waste</h3>
+            <p class="ar-only">خامات بتتهدر، وقت بيضيع، وعمليات مش محسوبة — فلوس بتطير من غير سبب واضح</p>
+            <p class="en-only">Ingredients wasted, time lost, and untracked operations — money flying out with no clear reason</p>
+          </div>
+        </div>
+        <div class="problem-card reveal">
+          <div class="problem-icon">🔀</div>
+          <div>
+            <h3 class="ar-only">مفيش سيستم واضح</h3>
+            <h3 class="en-only">No Clear Systems</h3>
+            <p class="ar-only">كل يوم بتحل نفس المشاكل من جديد — مفيش سيستم يشتغل لو انت مش موجود</p>
+            <p class="en-only">You solve the same problems daily — no system that works when you're not there</p>
+          </div>
+        </div>
+        <div class="problem-card reveal">
+          <div class="problem-icon">📊</div>
+          <div>
+            <h3 class="ar-only">مفيش بيانات حقيقية</h3>
+            <h3 class="en-only">No Real Data</h3>
+            <p class="ar-only">قرارات على حدس مش على أرقام — والنتيجة قرارات غلط وخسارة مش لازم تحصل</p>
+            <p class="en-only">Decisions based on gut feeling not numbers — leading to costly mistakes that could be avoided</p>
+          </div>
+        </div>
+      </div>
+      <div style="text-align:center;margin-top:48px;">
+        <a href="https://form.typeform.com/to/F0duFgNU" target="_blank" class="btn btn-primary btn-lg ar-only">
+          🎯 اكتشف مشكلتك الحقيقية
+        </a>
+        <a href="https://form.typeform.com/to/F0duFgNU" target="_blank" class="btn btn-primary btn-lg en-only">
+          🎯 Discover Your Real Problem
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- SERVICES PREVIEW -->
+  <section class="section">
+    <div class="container">
+      <div class="section-header">
+        <span class="tag ar-only">⚙️ خدماتنا</span>
+        <span class="tag en-only">⚙️ Our Services</span>
+        <h2 class="heading-lg ar-only">إزاي بنحل المشكلة؟</h2>
+        <h2 class="heading-lg en-only">How We Fix It</h2>
+        <p class="ar-only">مش بنكتب تقارير بس — بنشتغل جنبك عشان نعمل تغيير حقيقي يبان في الأرقام</p>
+        <p class="en-only">We don't just write reports — we work alongside you to create real change that shows in the numbers</p>
+      </div>
+      <div class="grid-3">
+        <div class="service-card reveal">
+          <div class="service-num">01</div>
+          <div class="service-icon">🔍</div>
+          <h3 class="ar-only">تدقيق التشغيل</h3>
+          <h3 class="en-only">Operations Audit</h3>
+          <p class="ar-only">بنراجع كل حاجة من الاستقبال للمطبخ ونحدد فين بالظبط الفلوس بتضيع</p>
+          <p class="en-only">We review everything from front-of-house to kitchen and pinpoint exactly where money leaks</p>
+          <span class="service-tag ar-only">مخصص لمطعمك</span>
+          <span class="service-tag en-only">Tailored to You</span>
+        </div>
+        <div class="service-card reveal">
+          <div class="service-num">02</div>
+          <div class="service-icon">👨‍🍳</div>
+          <h3 class="ar-only">تدريب الفريق</h3>
+          <h3 class="en-only">Staff Training</h3>
+          <p class="ar-only">برامج تدريب عملية للمطبخ والخدمة — بناس بتفهم وتطبق مش بس تسمع</p>
+          <p class="en-only">Hands-on training for kitchen and service — staff that understand and apply, not just listen</p>
+          <span class="service-tag ar-only">نتايج في أسابيع</span>
+          <span class="service-tag en-only">Results in Weeks</span>
+        </div>
+        <div class="service-card reveal">
+          <div class="service-num">03</div>
+          <div class="service-icon">✅</div>
+          <h3 class="ar-only">أنظمة الجودة</h3>
+          <h3 class="en-only">Quality Systems</h3>
+          <p class="ar-only">بنبني أنظمة تضمن ثبات الجودة في كل طبق في كل وقت بأي فريق</p>
+          <p class="en-only">We build systems ensuring consistent quality in every dish, every time, with any team</p>
+          <span class="service-tag ar-only">قابل للتطبيق فوراً</span>
+          <span class="service-tag en-only">Immediately Applicable</span>
+        </div>
+        <div class="service-card reveal">
+          <div class="service-num">04</div>
+          <div class="service-icon">📋</div>
+          <h3 class="ar-only">تطوير المنيو</h3>
+          <h3 class="en-only">Menu Optimization</h3>
+          <p class="ar-only">تحليل الأصناف والتسعير وهندسة المنيو لزيادة متوسط الفاتورة والأرباح</p>
+          <p class="en-only">Item analysis, pricing, and menu engineering to increase average ticket and margins</p>
+          <span class="service-tag ar-only">زيادة الإيرادات</span>
+          <span class="service-tag en-only">Revenue Boost</span>
+        </div>
+        <div class="service-card reveal">
+          <div class="service-num">05</div>
+          <div class="service-icon">📄</div>
+          <h3 class="ar-only">بناء الـ SOPs</h3>
+          <h3 class="en-only">SOP Development</h3>
+          <p class="ar-only">إجراءات تشغيل موحدة مكتوبة وواضحة تخلي مطعمك يشتغل حتى لو انت مش موجود</p>
+          <p class="en-only">Written, clear standard operating procedures that make your restaurant run without you</p>
+          <span class="service-tag ar-only">استقلالية تشغيلية</span>
+          <span class="service-tag en-only">Operational Independence</span>
+        </div>
+        <div class="service-card reveal" style="display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;background:var(--green-muted);border-color:rgba(31,122,99,0.4);">
+          <div style="font-size:2.5rem;margin-bottom:16px;">🚀</div>
+          <h3 class="ar-only">مش عارف من أنهي تبدأ؟</h3>
+          <h3 class="en-only">Not Sure Where to Start?</h3>
+          <p style="color:rgba(255,255,255,0.7);font-size:14px;margin-bottom:20px;" class="ar-only">خد الاختبار المجاني وهنحدد أولوياتك</p>
+          <p style="color:rgba(255,255,255,0.7);font-size:14px;margin-bottom:20px;" class="en-only">Take the free quiz and we'll identify your priorities</p>
+          <a href="https://form.typeform.com/to/F0duFgNU" target="_blank" class="btn btn-primary ar-only">ابدأ الاختبار</a>
+          <a href="https://form.typeform.com/to/F0duFgNU" target="_blank" class="btn btn-primary en-only">Start Quiz</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TRAINING PREVIEW -->
+  <section class="section" style="background:var(--gray);">
+    <div class="container">
+      <div class="section-header">
+        <span class="tag ar-only">🎓 برامج التدريب</span>
+        <span class="tag en-only">🎓 Training Programs</span>
+        <h2 class="heading-lg ar-only">تدريب عملي يبان في الأداء</h2>
+        <h2 class="heading-lg en-only">Hands-On Training That Shows in Performance</h2>
+      </div>
+      <div class="grid-4">
+        <div class="card reveal">
+          <div class="card-icon">🛎️</div>
+          <h3 class="ar-only">تدريب الـ FOH</h3>
+          <h3 class="en-only">FOH Training</h3>
+          <p class="ar-only">تجربة عميل استثنائية — الاستقبال، الخدمة، والتعامل مع الشكاوى</p>
+          <p class="en-only">Exceptional guest experience — hosting, service flow, and complaint handling</p>
+        </div>
+        <div class="card reveal">
+          <div class="card-icon">🔥</div>
+          <h3 class="ar-only">كفاءة المطبخ</h3>
+          <h3 class="en-only">Kitchen Efficiency</h3>
+          <p class="ar-only">تنظيم المطبخ وتسريع الإنتاج بدون التأثير على الجودة أو السلامة</p>
+          <p class="en-only">Kitchen organization and production speed without affecting quality or safety</p>
+        </div>
+        <div class="card reveal">
+          <div class="card-icon">⏰</div>
+          <h3 class="ar-only">إدارة الشيفت</h3>
+          <h3 class="en-only">Shift Management</h3>
+          <p class="ar-only">كيفية إدارة الشيفت بكفاءة — توزيع المهام، المتابعة، وحل المشاكل اللحظية</p>
+          <p class="en-only">Efficient shift management — task distribution, follow-up, and on-the-spot problem solving</p>
+        </div>
+        <div class="card reveal">
+          <div class="card-icon">🏅</div>
+          <h3 class="ar-only">ضبط الجودة</h3>
+          <h3 class="en-only">Quality Control</h3>
+          <p class="ar-only">معايير الجودة، طرق الفحص، وبناء ثقافة الجودة داخل الفريق</p>
+          <p class="en-only">Quality standards, inspection methods, and building a quality culture within the team</p>
+        </div>
+      </div>
+      <div style="text-align:center;margin-top:40px;">
+        <a href="#" onclick="showPage('training')" class="btn btn-outline btn-lg ar-only">عرض برامج التدريب كاملة →</a>
+        <a href="#" onclick="showPage('training')" class="btn btn-outline btn-lg en-only">View All Training Programs →</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- SEGMENTATION -->
+  <section class="section">
+    <div class="container">
+      <div class="section-header">
+        <span class="tag ar-only">🎯 إحنا لمين؟</span>
+        <span class="tag en-only">🎯 Who We Serve</span>
+        <h2 class="heading-lg ar-only">حلول مصممة لنوع مطعمك</h2>
+        <h2 class="heading-lg en-only">Solutions Designed for Your Type of Business</h2>
+      </div>
+      <div class="grid-2">
+        <div class="seg-card reveal">
+          <span class="seg-badge">🍽️ <span class="ar-only">مطاعم صغيرة</span><span class="en-only">Small Restaurants</span></span>
+          <h3 class="ar-only">زيّد أرباحك <br>بدون توسع</h3>
+          <h3 class="en-only">Boost Your Profits <br>Without Expanding</h3>
+          <p class="desc ar-only">بنساعدك تستخرج أقصى ربح من مطعمك الحالي قبل ما تفكر في أي توسع</p>
+          <p class="desc en-only">We help you extract maximum profit from your current restaurant before thinking about expansion</p>
+          <ul class="seg-list">
+            <li class="ar-only">خفض التكاليف التشغيلية</li>
+            <li class="en-only">Reduce operational costs</li>
+            <li class="ar-only">تحسين معدل الجلوس والخدمة</li>
+            <li class="en-only">Improve seating turnover and service</li>
+            <li class="ar-only">بناء فريق يشتغل بدونك</li>
+            <li class="en-only">Build a team that works without you</li>
+            <li class="ar-only">رفع متوسط الفاتورة</li>
+            <li class="en-only">Increase average ticket size</li>
+          </ul>
+          <a href="#" onclick="showPage('small')" class="btn btn-primary ar-only">اعرف أكتر →</a>
+          <a href="#" onclick="showPage('small')" class="btn btn-primary en-only">Learn More →</a>
+        </div>
+        <div class="seg-card reveal">
+          <span class="seg-badge">🏢 <span class="ar-only">سلاسل ومستثمرين</span><span class="en-only">Chains & Investors</span></span>
+          <h3 class="ar-only">سيستم قابل <br>للتوسع والتكرار</h3>
+          <h3 class="en-only">Systems Built for <br>Scale & Replication</h3>
+          <p class="desc ar-only">بنبني البنية التحتية اللي تخليك تفتح فروع أو تجيب مستثمرين بثقة</p>
+          <p class="desc en-only">We build the infrastructure that lets you open branches or bring investors with confidence</p>
+          <ul class="seg-list">
+            <li class="ar-only">SOPs موحدة لكل الفروع</li>
+            <li class="en-only">Unified SOPs for all branches</li>
+            <li class="ar-only">سيستم جودة قابل للقياس</li>
+            <li class="en-only">Measurable quality system</li>
+            <li class="ar-only">هيكل إداري واضح</li>
+            <li class="en-only">Clear management structure</li>
+            <li class="ar-only">تقارير أداء دورية</li>
+            <li class="en-only">Regular performance reports</li>
+          </ul>
+          <a href="#" onclick="showPage('chains')" class="btn btn-primary ar-only">اعرف أكتر →</a>
+          <a href="#" onclick="showPage('chains')" class="btn btn-primary en-only">Learn More →</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- INSIGHTS PREVIEW -->
+  <section class="section" style="background:var(--gray);">
+    <div class="container">
+      <div class="section-header">
+        <span class="tag ar-only">📖 مقالات ونصايح</span>
+        <span class="tag en-only">📖 Insights & Tips</span>
+        <h2 class="heading-lg ar-only">معلومات بتشتغل مش بس بتتقرأ</h2>
+        <h2 class="heading-lg en-only">Knowledge That Works, Not Just Reads</h2>
+      </div>
+      <div class="grid-3">
+        <div class="blog-card reveal">
+          <div class="blog-img">🍔</div>
+          <div class="blog-content">
+            <div class="blog-meta">
+              <span class="blog-cat ar-only">تكاليف</span>
+              <span class="blog-cat en-only">Costs</span>
+              <span class="ar-only">• 5 دقايق قراءة</span>
+              <span class="en-only">• 5 min read</span>
+            </div>
+            <h3 class="ar-only">٥ طرق لتخفيض تكلفة الطعام بدون ما تأثر على الجودة</h3>
+            <h3 class="en-only">5 Ways to Cut Food Costs Without Affecting Quality</h3>
+            <p class="ar-only">مش لازم تغير المنيو أو تقلل الأصناف — فيه طرق تانية أكتر ذكاء وكفاءة</p>
+            <p class="en-only">You don't need to change the menu or reduce items — there are smarter, more efficient ways</p>
+            <a href="https://form.typeform.com/to/F0duFgNU" target="_blank" class="blog-read ar-only">اقرأ المقال →</a>
+            <a href="https://form.typeform.com/to/F0duFgNU" target="_blank" class="blog-read en-only">Read Article →</a>
+          </div>
+        </div>
+        <div class="blog-card reveal">
+          <div class="blog-img">👨‍🍳</div>
+          <div class="blog-content">
+            <div class="blog-meta">
+              <span class="blog-cat ar-only">فريق</span>
+              <span class="blog-cat en-only">Team</span>
+              <span class="ar-only">• 7 دقايق قراءة</span>
+              <span class="en-only">• 7 min read</span>
+            </div>
+            <h3 class="ar-only">إزاي تبني فريق يشتغل من غير ما تبقى موجود طول الوقت</h3>
+            <h3 class="en-only">How to Build a Team That Works Even When You're Not There</h3>
+            <p class="ar-only">سر المطاعم الناجحة مش الأكل بس — هو الفريق اللي بيشتغل بنفس المستوى دايماً</p>
+            <p class="en-only">The secret of successful restaurants isn't just the food — it's a team that always performs</p>
+            <a href="https://form.typeform.com/to/F0duFgNU" target="_blank" class="blog-read ar-only">اقرأ المقال →</a>
+            <a href="https://form.typeform.com/to/F0duFgNU" target="_blank" class="blog-read en-only">Read Article →</a>
+          </div>
+        </div>
+        <div class="blog-card reveal">
+          <div class="blog-img">📊</div>
+          <div class="blog-content">
+            <div class="blog-meta">
+              <span class="blog-cat ar-only">منيو</span>
+              <span class="blog-cat en-only">Menu</span>
+              <span class="ar-only">• 6 دقايق قراءة</span>
+              <span class="en-only">• 6 min read</span>
+            </div>
+            <h3 class="ar-only">هندسة المنيو: ازاي تخلي العميل يطلب الأصناف الأعلى ربحية</h3>
+            <h3 class="en-only">Menu Engineering: Making Customers Order Your Most Profitable Items</h3>
+            <p class="ar-only">المنيو مش قايمة أكل — هو أداة تسويق وبيع لو عرفت تستخدمها صح</p>
+            <p class="en-only">A menu isn't just a food list — it's a sales tool if you know how to use it right</p>
+            <a href="https://form.typeform.com/to/F0duFgNU" target="_blank" class="blog-read ar-only">اقرأ المقال →</a>
+            <a href="https://form.typeform.com/to/F0duFgNU" target="_blank" class="blog-read en-only">Read Article →</a>
+          </div>
+        </div>
+      </div>
+      <div style="text-align:center;margin-top:40px;">
+        <a href="#" onclick="showPage('insights')" class="btn btn-outline btn-lg ar-only">كل المقالات →</a>
+        <a href="#" onclick="showPage('insights')" class="btn btn-outline btn-lg en-only">All Insights →</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- FINAL CTA -->
+  <section class="section">
+    <div class="container">
+      <div class="cta-band">
+        <h2 class="ar-only">خطوة واحدة تغير مسار مطعمك</h2>
+        <h2 class="en-only">One Step That Changes Your Restaurant's Trajectory</h2>
+        <p class="ar-only">الاختبار مجاني، لا يأخد أكتر من ٣ دقايق، ونتيجته بتحدد وين بالظبط مطعمك محتاج تشتغل</p>
+        <p class="en-only">The quiz is free, takes under 3 minutes, and the result shows exactly where your restaurant needs work</p>
+        <div class="cta-buttons">
+          <a href="https://form.typeform.com/to/F0duFgNU" target="_blank" class="btn btn-primary btn-lg ar-only">🎯 خد الاختبار دلوقتي</a>
+          <a href="https://form.typeform.com/to/F0duFgNU" target="_blank" class="btn btn-primary btn-lg en-only">🎯 Take the Quiz Now</a>
+          <a href="#" onclick="showPage('booking')" class="btn btn-outline btn-lg ar-only">📅 احجز استشارة مجانية</a>
+          <a href="#" onclick="showPage('booking')" class="btn btn-outline btn-lg en-only">📅 Book Free Consultation</a>
+          <a href="https://wa.me/201044008477" target="_blank" class="btn btn-whatsapp btn-lg">💬 WhatsApp</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</div>
+
+<!-- ============ ABOUT PAGE ============ -->
+<div class="page" id="page-about">
+  <div class="about-hero">
+    <div class="container">
+      <div class="section-header">
+        <span class="tag ar-only">👥 من إحنا</span>
+        <span class="tag en-only">👥 About Us</span>
+        <h1 class="heading-xl ar-only">CAREERI — مش بس استشارين</h1>
+        <h1 class="heading-xl en-only">CAREERI — More Than Consultants</h1>
+        <p style="color:var(--gray3);font-size:17px;max-width:650px;margin:16px auto 0;" class="ar-only">
+          إحنا فريق من خبراء الـ F&B اللي اشتغلوا جوه المطابخ والمطاعم — مش بس درسوها من كتب
+        </p>
+        <p style="color:var(--gray3);font-size:17px;max-width:650px;margin:16px auto 0;" class="en-only">
+          We're a team of F&B experts who worked inside kitchens and restaurants — not just studied them from books
+        </p>
+      </div>
+    </div>
+  </div>
+  <section class="section">
+    <div class="container">
+      <div class="about-grid">
+        <div>
+          <span class="tag ar-only">💡 رؤيتنا</span>
+          <span class="tag en-only">💡 Our Vision</span>
+          <h2 class="heading-lg" style="margin-bottom:20px;" class="ar-only">بنؤمن إن كل مطعم يستاهل يكسب</h2>
+          <h2 class="heading-lg" style="margin-bottom:20px;" class="en-only">We Believe Every Restaurant Deserves to Profit</h2>
+          <p style="color:var(--gray3);margin-bottom:20px;" class="ar-only">
+            كتير من أصحاب المطاعم بيكدحوا بجد ومطعمهم مش بيكسب المفروض — مش لأنهم مش شاطرين، لكن لأن فيه مشاكل تشغيلية خفية محدش فضفض معاهم فيها.
+          </p>
+          <p style="color:var(--gray3);margin-bottom:20px;" class="en-only">
+            Many restaurant owners work extremely hard yet don't earn what they deserve — not because they're not good, but because there are hidden operational issues nobody talked to them about.
+          </p>
+          <p style="color:var(--gray3);margin-bottom:32px;" class="ar-only">
+            CAREERI اتأسست عشان تملأ الفراغ ده — بتقديم استشارات عملية، حلول قابلة للتطبيق، ودعم مستمر لحد ما الأرقام تتغير.
+          </p>
+          <p style="color:var(--gray3);margin-bottom:32px;" class="en-only">
+            CAREERI was founded to fill that gap — offering practical consulting, implementable solutions, and ongoing support until the numbers change.
+          </p>
+          <div style="display:flex;gap:14px;flex-wrap:wrap;">
+            <a href="https://form.typeform.com/to/F0duFgNU" target="_blank" class="btn btn-primary ar-only">ابدأ رحلتك معنا</a>
+            <a href="https://form.typeform.com/to/F0duFgNU" target="_blank" class="btn btn-primary en-only">Start Your Journey</a>
+            <a href="#" onclick="showPage('contact')" class="btn btn-outline ar-only">تواصل معنا</a>
+            <a href="#" onclick="showPage('contact')" class="btn btn-outline en-only">Contact Us</a>
+          </div>
+        </div>
+        <div class="about-visual">
+          <div class="value-item">
+            <div class="value-icon">🎯</div>
+            <div>
+              <h4 class="ar-only">نتايج مش تقارير</h4>
+              <h4 class="en-only">Results Not Reports</h4>
+              <p class="ar-only">هدفنا تغيير الأرقام مش كتابة ورق</p>
+              <p class="en-only">Our goal is changing numbers, not writing papers</p>
+            </div>
+          </div>
+          <div class="value-item">
+            <div class="value-icon">🤝</div>
+            <div>
+              <h4 class="ar-only">شراكة حقيقية</h4>
+              <h4 class="en-only">Real Partnership</h4>
+              <p class="ar-only">بنبقى جنبك من الأول للآخر</p>
+              <p class="en-only">We stay with you from start to finish</p>
+            </div>
+          </div>
+          <div class="value-item">
+            <div class="value-icon">🏭</div>
+            <div>
+              <h4 class="ar-only">خبرة ميدانية</h4>
+              <h4 class="en-only">Field Experience</h4>
+              <p class="ar-only">اشتغلنا جوه المطاعم فعلياً</p>
+              <p class="en-only">We actually worked inside restaurants</p>
+            </div>
+          </div>
+          <div class="value-item">
+            <div class="value-icon">📈</div>
+            <div>
+              <h4 class="ar-only">قابل للقياس</h4>
+              <h4 class="en-only">Measurable Impact</h4>
+              <p class="ar-only">كل حاجة بنعملها ليها مقياس واضح</p>
+              <p class="en-only">Everything we do has a clear metric</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section class="section" style="background:var(--gray);">
+    <div class="container">
+      <div class="section-header">
+        <span class="tag ar-only">🏆 إنجازاتنا</span>
+        <span class="tag en-only">🏆 Our Achievements</span>
+      </div>
+      <div class="grid-4">
+        <div class="card" style="text-align:center;">
+          <div style="font-size:3rem;font-weight:900;color:var(--green-light);font-family:var(--font-en);">+50</div>
+          <h3 class="ar-only">مطعم</h3>
+          <h3 class="en-only">Restaurants</h3>
+          <p class="ar-only">استفادوا من خدماتنا</p>
+          <p class="en-only">benefited from our services</p>
+        </div>
+        <div class="card" style="text-align:center;">
+          <div style="font-size:3rem;font-weight:900;color:var(--green-light);font-family:var(--font-en);">+30%</div>
+          <h3 class="ar-only">زيادة ربح</h3>
+          <h3 class="en-only">Profit Increase</h3>
+          <p class="ar-only">متوسط لعملائنا</p>
+          <p class="en-only">average for our clients</p>
+        </div>
+        <div class="card" style="text-align:center;">
+          <div style="font-size:3rem;font-weight:900;color:var(--green-light);font-family:var(--font-en);">6+</div>
+          <h3 class="ar-only">سنين خبرة</h3>
+          <h3 class="en-only">Years Experience</h3>
+          <p class="ar-only">في قطاع F&B</p>
+          <p class="en-only">in the F&B sector</p>
+        </div>
+        <div class="card" style="text-align:center;">
+          <div style="font-size:3rem;font-weight:900;color:var(--green-light);font-family:var(--font-en);">95%</div>
+          <h3 class="ar-only">رضا العملاء</h3>
+          <h3 class="en-only">Client Satisfaction</h3>
+          <p class="ar-only">يوصوا بخدماتنا</p>
+          <p class="en-only">recommend our services</p>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
+
+<!-- ============ SERVICES PAGE ============ -->
+<div class="page" id="page-services">
+  <div class="about-hero">
+    <div class="container">
+      <div class="section-header">
+        <span class="tag ar-only">⚙️ خدماتنا</span>
+        <span class="tag en-only">⚙️ Our Services</span>
+        <h1 class="heading-xl ar-only">خدمات مصممة لتحسين أرباحك</h1>
+        <h1 class="heading-xl en-only">Services Designed to Improve Your Profits</h1>
+        <p style="color:var(--gray3);font-size:17px;max-width:600px;margin:16px auto 0;" class="ar-only">كل خدمة ليها مخرجات واضحة ونتايج قابلة للقياس — مش وعود فضفاضة</p>
+        <p style="color:var(--gray3);font-size:17px;max-width:600px;margin:16px auto 0;" class="en-only">Every service has clear deliverables and measurable outcomes — not vague promises</p>
+      </div>
+    </div>
+  </div>
+  <section class="section">
+    <div class="container">
+      <div style="display:flex;flex-direction:column;gap:32px;">
+        <div class="card reveal" style="display:grid;grid-template-columns:80px 1fr;gap:32px;align-items:start;">
+          <div style="width:80px;height:80px;background:var(--green-muted);border:1px solid rgba(31,122,99,0.3);border-radius:20px;display:flex;align-items:center;justify-content:center;font-size:36px;">🔍</div>
+          <div>
+            <h3 class="ar-only" style="font-size:1.4rem;margin-bottom:12px;">تدقيق التشغيل الشامل</h3>
+            <h3 class="en-only" style="font-size:1.4rem;margin-bottom:12px;">Comprehensive Operations Audit</h3>
+            <p class="ar-only" style="color:var(--gray3);margin-bottom:16px;">بنعمل مراجعة كاملة لكل جوانب تشغيل مطعمك — المطبخ، الخدمة، المشتريات، التكاليف، والفريق. الهدف هو تحديد كل نقطة ضعف وترتيبها حسب الأولوية والتأثير على الأرباح.</p>
+            <p class="en-only" style="color:var(--gray3);margin-bottom:16px;">We do a complete review of every aspect of your restaurant's operations — kitchen, service, purchasing, costs, and team. The goal is identifying every weakness and prioritizing by impact on profits.</p>
+            <div style="display:flex;gap:10px;flex-wrap:wrap;">
+              <span class="service-tag ar-only">تقرير مفصل</span>
+              <span class="service-tag en-only">Detailed Report</span>
+              <span class="service-tag ar-only">خطة عمل واضحة</span>
+              <span class="service-tag en-only">Clear Action Plan</span>
+              <span class="service-tag ar-only">أولويات قابلة للتطبيق</span>
+              <span class="service-tag en-only">Actionable Priorities</span>
+            </div>
+          </div>
+        </div>
+        <div class="card reveal" style="display:grid;grid-template-columns:80px 1fr;gap:32px;align-items:start;">
+          <div style="width:80px;height:80px;background:var(--green-muted);border:1px solid rgba(31,122,99,0.3);border-radius:20px;display:flex;align-items:center;justify-content:center;font-size:36px;">👨‍🍳</div>
+          <div>
+            <h3 class="ar-only" style="font-size:1.4rem;margin-bottom:12px;">تدريب وتطوير الفريق</h3>
+            <h3 class="en-only" style="font-size:1.4rem;margin-bottom:12px;">Team Training & Development</h3>
+            <p class="ar-only" style="color:var(--gray3);margin-bottom:16px;">برامج تدريب عملية ومخصصة لمطعمك — مش workshops نظرية. بنشتغل مع فريقك جوه المطعم عشان نبني مهارات حقيقية تبان في الأداء اليومي.</p>
+            <p class="en-only" style="color:var(--gray3);margin-bottom:16px;">Hands-on training programs customized for your restaurant — not theoretical workshops. We work with your team inside the restaurant to build real skills that show in daily performance.</p>
+            <div style="display:flex;gap:10px;flex-wrap:wrap;">
+              <span class="service-tag ar-only">تدريب ميداني</span>
+              <span class="service-tag en-only">Field Training</span>
+              <span class="service-tag ar-only">مواد تدريبية</span>
+              <span class="service-tag en-only">Training Materials</span>
+              <span class="service-tag ar-only">متابعة الأداء</span>
+              <span class="service-tag en-only">Performance Follow-up</span>
+            </div>
+          </div>
+        </div>
+        <div class="card reveal" style="display:grid;grid-template-columns:80px 1fr;gap:32px;align-items:start;">
+          <div style="width:80px;height:80px;background:var(--green-muted);border:1px solid rgba(31,122,99,0.3);border-radius:20px;display:flex;align-items:center;justify-content:center;font-size:36px;">✅</div>
+          <div>
+            <h3 class="ar-only" style="font-size:1.4rem;margin-bottom:12px;">بناء أنظمة الجودة</h3>
+            <h3 class="en-only" style="font-size:1.4rem;margin-bottom:12px;">Quality Systems Development</h3>
+            <p class="ar-only" style="color:var(--gray3);margin-bottom:16px;">بنبني معايير جودة واضحة وأدوات مراقبة تضمن ثبات المنتج بغض النظر عن من يشتغل في الشيفت.</p>
+            <p class="en-only" style="color:var(--gray3);margin-bottom:16px;">We build clear quality standards and monitoring tools ensuring consistent product regardless of who's working the shift.</p>
+            <div style="display:flex;gap:10px;flex-wrap:wrap;">
+              <span class="service-tag ar-only">معايير موثقة</span>
+              <span class="service-tag en-only">Documented Standards</span>
+              <span class="service-tag ar-only">أدوات قياس الجودة</span>
+              <span class="service-tag en-only">Quality Measurement Tools</span>
+            </div>
+          </div>
+        </div>
+        <div class="card reveal" style="display:grid;grid-template-columns:80px 1fr;gap:32px;align-items:start;">
+          <div style="width:80px;height:80px;background:var(--green-muted);border:1px solid rgba(31,122,99,0.3);border-radius:20px;display:flex;align-items:center;justify-content:center;font-size:36px;">📋</div>
+          <div>
+            <h3 class="ar-only" style="font-size:1.4rem;margin-bottom:12px;">هندسة وتطوير المنيو</h3>
+            <h3 class="en-only" style="font-size:1.4rem;margin-bottom:12px;">Menu Engineering & Optimization</h3>
+            <p class="ar-only" style="color:var(--gray3);margin-bottom:16px;">تحليل مفصل للأصناف من حيث الربحية والشعبية — وإعادة هيكلة المنيو لزيادة متوسط الفاتورة وتحسين هامش الربح.</p>
+            <p class="en-only" style="color:var(--gray3);margin-bottom:16px;">Detailed analysis of items by profitability and popularity — and restructuring the menu to increase average ticket and improve profit margin.</p>
+            <div style="display:flex;gap:10px;flex-wrap:wrap;">
+              <span class="service-tag ar-only">تحليل الربحية</span>
+              <span class="service-tag en-only">Profitability Analysis</span>
+              <span class="service-tag ar-only">تصميم المنيو</span>
+              <span class="service-tag en-only">Menu Design</span>
+            </div>
+          </div>
+        </div>
+        <div class="card reveal" style="display:grid;grid-template-columns:80px 1fr;gap:32px;align-items:start;">
+          <div style="width:80px;height:80px;background:var(--green-muted);border:1px solid rgba(31,122,99,0.3);border-radius:20px;display:flex;align-items:center;justify-content:center;font-size:36px;">📄</div>
+          <div>
+            <h3 class="ar-only" style="font-size:1.4rem;margin-bottom:12px;">كتابة وبناء الـ SOPs</h3>
+            <h3 class="en-only" style="font-size:1.4rem;margin-bottom:12px;">SOP Writing & Development</h3>
+            <p class="ar-only" style="color:var(--gray3);margin-bottom:16px;">إجراءات تشغيل قياسية مكتوبة ومصورة لكل عملية في مطعمك — من استقبال الخامات لتسليم الطبق للعميل.</p>
+            <p class="en-only" style="color:var(--gray3);margin-bottom:16px;">Written and visual standard operating procedures for every process in your restaurant — from receiving ingredients to delivering the dish to the customer.</p>
+            <div style="display:flex;gap:10px;flex-wrap:wrap;">
+              <span class="service-tag ar-only">مكتوبة ومصورة</span>
+              <span class="service-tag en-only">Written & Visual</span>
+              <span class="service-tag ar-only">قابلة للتطبيق فوراً</span>
+              <span class="service-tag en-only">Immediately Applicable</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div style="text-align:center;margin-top:60px;">
+        <div class="cta-band">
+          <h2 class="ar-only">محتاج تعرف إنهي خدمة مناسبة لمطعمك؟</h2>
+          <h2 class="en-only">Need to Know Which Service Fits Your Restaurant?</h2>
+          <p class="ar-only">الاختبار المجاني بيحدد أولوياتك بدقة</p>
+          <p class="en-only">The free quiz precisely identifies your priorities</p>
+          <div class="cta-buttons">
+            <a href="https://form.typeform.com/to/F0duFgNU" target="_blank" class="btn btn-primary btn-lg ar-only">🎯 خد الاختبار دلوقتي</a>
+            <a href="https://form.typeform.com/to/F0duFgNU" target="_blank" class="btn btn-primary btn-lg en-only">🎯 Take the Quiz Now</a>
+            <a href="https://wa.me/201044008477" target="_blank" class="btn btn-whatsapp btn-lg">💬 WhatsApp</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
+
+<!-- ============ TRAINING PAGE ============ -->
+<div class="page" id="page-training">
+  <div class="about-hero">
+    <div class="container">
+      <div class="section-header">
+        <span class="tag ar-only">🎓 التدريب</span>
+        <span class="tag en-only">🎓 Training</span>
+        <h1 class="heading-xl ar-only">برامج تدريب عملية تبان في الأداء</h1>
+        <h1 class="heading-xl en-only">Hands-On Training Programs That Show in Performance</h1>
+      </div>
+    </div>
+  </div>
+  <section class="section">
+    <div class="container">
+      <div class="grid-2">
+        <div class="training-card reveal">
+          <span class="training-level level-basic ar-only">🟢 مستوى: أساسي</span>
+          <span class="training-level level-basic en-only">🟢 Level: Basic</span>
+          <div style="font-size:2.5rem;margin-bottom:16px;">🛎️</div>
+          <h3 class="ar-only" style="font-size:1.3rem;margin-bottom:12px;">تدريب الـ FOH — الخدمة الاحترافية</h3>
+          <h3 class="en-only" style="font-size:1.3rem;margin-bottom:12px;">FOH Training — Professional Service</h3>
+          <p class="ar-only" style="color:var(--gray3);margin-bottom:16px;">بيغطي: الاستقبال والترحيب، تقديم الأكل، التعامل مع الشكاوى، البيع الإضافي (upselling)، وإدارة الانتظار. الهدف بناء تجربة عميل تخليه يرجع تاني.</p>
+          <p class="en-only" style="color:var(--gray3);margin-bottom:16px;">Covers: greeting and hosting, food presentation, complaint handling, upselling, and wait management. The goal is building a guest experience that brings them back.</p>
+          <div class="training-duration">⏱️ <span class="ar-only">٣-٥ أيام</span><span class="en-only">3-5 Days</span></div>
+        </div>
+        <div class="training-card reveal">
+          <span class="training-level level-advanced ar-only">🟡 مستوى: متقدم</span>
+          <span class="training-level level-advanced en-only">🟡 Level: Advanced</span>
+          <div style="font-size:2.5rem;margin-bottom:16px;">🔥</div>
+          <h3 class="ar-only" style="font-size:1.3rem;margin-bottom:12px;">كفاءة المطبخ — الإنتاج السريع</h3>
+          <h3 class="en-only" style="font-size:1.3rem;margin-bottom:12px;">Kitchen Efficiency — Fast Production</h3>
+          <p class="ar-only" style="color:var(--gray3);margin-bottom:16px;">تنظيم المطبخ، توزيع الستيشنز، إدارة الطلبات في الذروة، تقليل وقت الإعداد، والحفاظ على ثبات الجودة تحت الضغط.</p>
+          <p class="en-only" style="color:var(--gray3);margin-bottom:16px;">Kitchen organization, station distribution, order management during peak hours, reducing prep time, and maintaining quality under pressure.</p>
+          <div class="training-duration">⏱️ <span class="ar-only">٤-٧ أيام</span><span class="en-only">4-7 Days</span></div>
+        </div>
+        <div class="training-card reveal">
+          <span class="training-level level-advanced ar-only">🟡 مستوى: متقدم</span>
+          <span class="training-level level-advanced en-only">🟡 Level: Advanced</span>
+          <div style="font-size:2.5rem;margin-bottom:16px;">⏰</div>
+          <h3 class="ar-only" style="font-size:1.3rem;margin-bottom:12px;">إدارة الشيفت — القيادة الميدانية</h3>
+          <h3 class="en-only" style="font-size:1.3rem;margin-bottom:12px;">Shift Management — Field Leadership</h3>
+          <p class="ar-only" style="color:var(--gray3);margin-bottom:16px;">للمشرفين وقائدي الشيفت: توزيع المهام، المتابعة الفعالة، اتخاذ القرار السريع، وإدارة الفريق تحت الضغط.</p>
+          <p class="en-only" style="color:var(--gray3);margin-bottom:16px;">For supervisors and shift leaders: task distribution, effective follow-up, quick decision-making, and team management under pressure.</p>
+          <div class="training-duration">⏱️ <span class="ar-only">٣ أيام</span><span class="en-only">3 Days</span></div>
+        </div>
+        <div class="training-card reveal">
+          <span class="training-level level-pro ar-only">🟢 مستوى: احترافي</span>
+          <span class="training-level level-pro en-only">🟢 Level: Professional</span>
+          <div style="font-size:2.5rem;margin-bottom:16px;">🏅</div>
+          <h3 class="ar-only" style="font-size:1.3rem;margin-bottom:12px;">ضبط الجودة — ثبات الأداء</h3>
+          <h3 class="en-only" style="font-size:1.3rem;margin-bottom:12px;">Quality Control — Performance Consistency</h3>
+          <p class="ar-only" style="color:var(--gray3);margin-bottom:16px;">تحديد معايير الجودة لكل صنف، أدوات الفحص اليومي، وبناء ثقافة الجودة داخل الفريق بحيث تصبح ردة فعل طبيعية لا إلزامية.</p>
+          <p class="en-only" style="color:var(--gray3);margin-bottom:16px;">Defining quality standards for each item, daily inspection tools, and building a quality culture where it becomes a natural reflex, not a requirement.</p>
+          <div class="training-duration">⏱️ <span class="ar-only">٢-٣ أيام</span><span class="en-only">2-3 Days</span></div>
+        </div>
+      </div>
+      <div style="margin-top:60px;">
+        <div class="cta-band">
+          <h2 class="ar-only">ابدأ بتحديد احتياجاتك</h2>
+          <h2 class="en-only">Start by Identifying Your Needs</h2>
+          <p class="ar-only">خد الاختبار أو تواصل معنا مباشرة ونحدد البرنامج المناسب لفريقك</p>
+          <p class="en-only">Take the quiz or contact us directly and we'll identify the right program for your team</p>
+          <div class="cta-buttons">
+            <a href="https://form.typeform.com/to/F0duFgNU" target="_blank" class="btn btn-primary btn-lg ar-only">🎯 ابدأ الاختبار</a>
+            <a href="https://form.typeform.com/to/F0duFgNU" target="_blank" class="btn btn-primary btn-lg en-only">🎯 Start Quiz</a>
+            <a href="https://wa.me/201044008477" target="_blank" class="btn btn-whatsapp btn-lg">💬 WhatsApp</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
+
+<!-- ============ SMALL RESTAURANTS PAGE ============ -->
+<div class="page" id="page-small">
+  <div class="about-hero">
+    <div class="container">
+      <div class="section-header">
+        <span class="tag">🍽️</span>
+        <h1 class="heading-xl ar-only">للمطاعم الصغيرة والمتوسطة</h1>
+        <h1 class="heading-xl en-only">For Small & Medium Restaurants</h1>
+        <p style="color:var(--gray3);font-size:17px;max-width:600px;margin:16px auto 0;" class="ar-only">زيّد أرباحك من اللي عندك — قبل ما تفكر في أي حاجة جديدة</p>
+        <p style="color:var(--gray3);font-size:17px;max-width:600px;margin:16px auto 0;" class="en-only">Increase your profits from what you have — before thinking about anything new</p>
+      </div>
+    </div>
+  </div>
+  <section class="section">
+    <div class="container">
+      <div class="about-grid">
+        <div>
+          <h2 class="heading-lg" style="margin-bottom:24px;" class="ar-only">إنت شغال — بس مش كسبان زي ما المفروض</h2>
+          <h2 class="heading-lg" style="margin-bottom:24px;" class="en-only">You're Working — But Not Earning What You Should</h2>
+          <p style="color:var(--gray3);margin-bottom:20px;" class="ar-only">المطاعم الصغيرة غالباً عندها فرص ربح كبيرة مخبية جوفها — في التكاليف، في المنيو، في التدريب، أو في العمليات. بنساعدك تكشف الفرص دي وتستغلها.</p>
+          <p style="color:var(--gray3);margin-bottom:20px;" class="en-only">Small restaurants often have big hidden profit opportunities — in costs, in the menu, in training, or in operations. We help you uncover these opportunities and leverage them.</p>
+          <ul style="list-style:none;display:flex;flex-direction:column;gap:14px;margin-bottom:32px;">
+            <li style="display:flex;align-items:center;gap:12px;" class="ar-only"><span style="color:var(--green-light);font-size:1.1rem;">✓</span> تحليل التكاليف وتحديد مواطن الهدر</li>
+            <li style="display:flex;align-items:center;gap:12px;" class="en-only"><span style="color:var(--green-light);font-size:1.1rem;">✓</span> Cost analysis and identifying waste points</li>
+            <li style="display:flex;align-items:center;gap:12px;" class="ar-only"><span style="color:var(--green-light);font-size:1.1rem;">✓</span> تطوير المنيو لزيادة متوسط الفاتورة</li>
+            <li style="display:flex;align-items:center;gap:12px;" class="en-only"><span style="color:var(--green-light);font-size:1.1rem;">✓</span> Menu development to increase average ticket</li>
+            <li style="display:flex;align-items:center;gap:12px;" class="ar-only"><span style="color:var(--green-light);font-size:1.1rem;">✓</span> تدريب الفريق على الخدمة والجودة</li>
+            <li style="display:flex;align-items:center;gap:12px;" class="en-only"><span style="color:var(--green-light);font-size:1.1rem;">✓</span> Team training on service and quality</li>
+            <li style="display:flex;align-items:center;gap:12px;" class="ar-only"><span style="color:var(--green-light);font-size:1.1rem;">✓</span> بناء سيستم بسيط وعملي يشتغل يومياً</li>
+            <li style="display:flex;align-items:center;gap:12px;" class="en-only"><span style="color:var(--green-light);font-size:1.1rem;">✓</span> Building a simple, practical system that works daily</li>
+          </ul>
+          <a href="https://form.typeform.com/to/F0duFgNU" target="_blank" class="btn btn-primary btn-lg ar-only">ابدأ رحلة تحسين أرباحك</a>
+          <a href="https://form.typeform.com/to/F0duFgNU" target="_blank" class="btn btn-primary btn-lg en-only">Start Your Profit Improvement Journey</a>
+        </div>
+        <div class="about-visual">
+          <div class="value-item">
+            <div class="value-icon">💰</div>
+            <div>
+              <h4 class="ar-only">تخفيض التكاليف</h4>
+              <h4 class="en-only">Cost Reduction</h4>
+              <p class="ar-only">متوسط وفر ١٥-٢٥% من التكاليف</p>
+              <p class="en-only">Average savings of 15-25% on costs</p>
+            </div>
+          </div>
+          <div class="value-item">
+            <div class="value-icon">📈</div>
+            <div>
+              <h4 class="ar-only">زيادة الإيرادات</h4>
+              <h4 class="en-only">Revenue Increase</h4>
+              <p class="ar-only">رفع متوسط الفاتورة ١٠-٢٠%</p>
+              <p class="en-only">Raise average ticket 10-20%</p>
+            </div>
+          </div>
+          <div class="value-item">
+            <div class="value-icon">⏰</div>
+            <div>
+              <h4 class="ar-only">وفر وقتك</h4>
+              <h4 class="en-only">Save Your Time</h4>
+              <p class="ar-only">سيستم يشتغل حتى لو انت مش موجود</p>
+              <p class="en-only">System that works even when you're away</p>
+            </div>
+          </div>
+          <div class="value-item">
+            <div class="value-icon">⭐</div>
+            <div>
+              <h4 class="ar-only">تحسين السمعة</h4>
+              <h4 class="en-only">Reputation Improvement</h4>
+              <p class="ar-only">جودة ثابتة = تقييمات أحسن = زباين أكتر</p>
+              <p class="en-only">Consistent quality = better ratings = more customers</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
+
+<!-- ============ CHAINS PAGE ============ -->
+<div class="page" id="page-chains">
+  <div class="about-hero">
+    <div class="container">
+      <div class="section-header">
+        <span class="tag">🏢</span>
+        <h1 class="heading-xl ar-only">للسلاسل والمستثمرين</h1>
+        <h1 class="heading-xl en-only">For Chains & Investors</h1>
+        <p style="color:var(--gray3);font-size:17px;max-width:600px;margin:16px auto 0;" class="ar-only">سيستم قابل للتكرار والتوسع — الأساس اللي أي سلسلة ناجحة بتبنيه</p>
+        <p style="color:var(--gray3);font-size:17px;max-width:600px;margin:16px auto 0;" class="en-only">A scalable and replicable system — the foundation every successful chain is built on</p>
+      </div>
+    </div>
+  </div>
+  <section class="section">
+    <div class="container">
+      <div class="about-grid">
+        <div>
+          <h2 class="heading-lg" style="margin-bottom:24px;" class="ar-only">التوسع بدون بنية — مخاطرة كبيرة</h2>
+          <h2 class="heading-lg" style="margin-bottom:24px;" class="en-only">Expansion Without Infrastructure — Big Risk</h2>
+          <p style="color:var(--gray3);margin-bottom:20px;" class="ar-only">كتير من السلاسل فشلت مش لأن المنتج مش كويس — لكن لأن السيستم ما كانش جاهز للتوسع. إحنا بنبني الـ infrastructure اللي يضمن نجاح كل فرع جديد.</p>
+          <p style="color:var(--gray3);margin-bottom:20px;" class="en-only">Many chains failed not because the product wasn't good — but because the system wasn't ready for expansion. We build the infrastructure that ensures every new branch succeeds.</p>
+          <ul style="list-style:none;display:flex;flex-direction:column;gap:14px;margin-bottom:32px;">
+            <li style="display:flex;align-items:center;gap:12px;" class="ar-only"><span style="color:var(--green-light);">✓</span> SOPs موحدة قابلة للتطبيق في كل الفروع</li>
+            <li style="display:flex;align-items:center;gap:12px;" class="en-only"><span style="color:var(--green-light);">✓</span> Unified SOPs applicable across all branches</li>
+            <li style="display:flex;align-items:center;gap:12px;" class="ar-only"><span style="color:var(--green-light);">✓</span> سيستم جودة موحد وقابل للقياس</li>
+            <li style="display:flex;align-items:center;gap:12px;" class="en-only"><span style="color:var(--green-light);">✓</span> Unified, measurable quality system</li>
+            <li style="display:flex;align-items:center;gap:12px;" class="ar-only"><span style="color:var(--green-light);">✓</span> هيكل إداري وتسلسل قيادي واضح</li>
+            <li style="display:flex;align-items:center;gap:12px;" class="en-only"><span style="color:var(--green-light);">✓</span> Clear management structure and leadership hierarchy</li>
+            <li style="display:flex;align-items:center;gap:12px;" class="ar-only"><span style="color:var(--green-light);">✓</span> تقارير أداء دورية لكل فرع</li>
+            <li style="display:flex;align-items:center;gap:12px;" class="en-only"><span style="color:var(--green-light);">✓</span> Regular performance reports for each branch</li>
+            <li style="display:flex;align-items:center;gap:12px;" class="ar-only"><span style="color:var(--green-light);">✓</span> برامج تدريب موحدة للموظفين الجدد</li>
+            <li style="display:flex;align-items:center;gap:12px;" class="en-only"><span style="color:var(--green-light);">✓</span> Unified training programs for new employees</li>
+          </ul>
+          <a href="https://form.typeform.com/to/F0duFgNU" target="_blank" class="btn btn-primary btn-lg ar-only">احجز استشارة للسلاسل</a>
+          <a href="https://form.typeform.com/to/F0duFgNU" target="_blank" class="btn btn-primary btn-lg en-only">Book a Chain Consultation</a>
+        </div>
+        <div class="about-visual">
+          <div class="value-item">
+            <div class="value-icon">🔄</div>
+            <div><h4 class="ar-only">قابل للتكرار</h4><h4 class="en-only">Replicable</h4><p class="ar-only">نفس الجودة في كل فرع</p><p class="en-only">Same quality in every branch</p></div>
+          </div>
+          <div class="value-item">
+            <div class="value-icon">📊</div>
+            <div><h4 class="ar-only">قابل للقياس</h4><h4 class="en-only">Measurable</h4><p class="ar-only">مؤشرات أداء واضحة لكل فرع</p><p class="en-only">Clear KPIs for every branch</p></div>
+          </div>
+          <div class="value-item">
+            <div class="value-icon">🚀</div>
+            <div><h4 class="ar-only">قابل للتوسع</h4><h4 class="en-only">Scalable</h4><p class="ar-only">سيستم يكبر معك بدون تعقيد</p><p class="en-only">A system that grows with you without complexity</p></div>
+          </div>
+          <div class="value-item">
+            <div class="value-icon">💼</div>
+            <div><h4 class="ar-only">جاهز للمستثمرين</h4><h4 class="en-only">Investor-Ready</h4><p class="ar-only">وثائق ونظام يبنّي ثقة المستثمر</p><p class="en-only">Documents and systems that build investor trust</p></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
+
+<!-- ============ INSIGHTS PAGE ============ -->
+<div class="page" id="page-insights">
+  <div class="about-hero">
+    <div class="container">
+      <div class="section-header">
+        <span class="tag ar-only">📖 مقالات ونصايح</span>
+        <span class="tag en-only">📖 Insights & Tips</span>
+        <h1 class="heading-xl ar-only">معلومات بتشتغل مش بس بتتقرأ</h1>
+        <h1 class="heading-xl en-only">Knowledge That Works, Not Just Reads</h1>
+      </div>
+    </div>
+  </div>
+  <section class="section">
+    <div class="container">
+      <div class="grid-3">
+        <div class="blog-card reveal">
+          <div class="blog-img">🍔</div>
+          <div class="blog-content">
+            <div class="blog-meta"><span class="blog-cat ar-only">تكاليف</span><span class="blog-cat en-only">Costs</span><span class="ar-only">• 5 دقايق</span><span class="en-only">• 5 min</span></div>
+            <h3 class="ar-only">٥ طرق لتخفيض تكلفة الطعام بدون التأثير على الجودة</h3>
+            <h3 class="en-only">5 Ways to Cut Food Costs Without Affecting Quality</h3>
+            <p class="ar-only">المقادير، الهدر، طريقة المشتريات، وإدارة الخامات — كلها فيها فرص وفر مخبية</p>
+            <p class="en-only">Portions, waste, purchasing methods, and ingredient management — all contain hidden savings opportunities</p>
+            <a href="https://form.typeform.com/to/F0duFgNU" target="_blank" class="blog-read ar-only">اقرأ →</a>
+            <a href="https://form.typeform.com/to/F0duFgNU" target="_blank" class="blog-read en-only">Read →</a>
+          </div>
+        </div>
+        <div class="blog-card reveal">
+          <div class="blog-img">👨‍🍳</div>
+          <div class="blog-content">
+            <div class="blog-meta"><span class="blog-cat ar-only">فريق</span><span class="blog-cat en-only">Team</span><span class="ar-only">• 7 دقايق</span><span class="en-only">• 7 min</span></div>
+            <h3 class="ar-only">إزاي تبني فريق يشتغل من غير ما تبقى موجود دايماً</h3>
+            <h3 class="en-only">How to Build a Team That Works Without You Being There</h3>
+            <p class="ar-only">التفويض، التوثيق، والمساءلة — ٣ عناصر ما يختلفش عليها أي مطعم ناجح</p>
+            <p class="en-only">Delegation, documentation, and accountability — 3 elements no successful restaurant can do without</p>
+            <a href="https://form.typeform.com/to/F0duFgNU" target="_blank" class="blog-read ar-only">اقرأ →</a>
+            <a href="https://form.typeform.com/to/F0duFgNU" target="_blank" class="blog-read en-only">Read →</a>
+          </div>
+        </div>
+        <div class="blog-card reveal">
+          <div class="blog-img">📊</div>
+          <div class="blog-content">
+            <div class="blog-meta"><span class="blog-cat ar-only">منيو</span><span class="blog-cat en-only">Menu</span><span class="ar-only">• 6 دقايق</span><span class="en-only">• 6 min</span></div>
+            <h3 class="ar-only">هندسة المنيو: خلّي العميل يطلب الأصناف الأعلى ربحية</h3>
+            <h3 class="en-only">Menu Engineering: Make Customers Order Your Most Profitable Items</h3>
+            <p class="ar-only">ترتيب الأصناف، التصميم، والوصف — كلهم بيأثروا في قرار الشراء بشكل مثبت علمياً</p>
+            <p class="en-only">Item placement, design, and description — all scientifically proven to influence purchasing decisions</p>
+            <a href="https://form.typeform.com/to/F0duFgNU" target="_blank" class="blog-read ar-only">اقرأ →</a>
+            <a href="https://form.typeform.com/to/F0duFgNU" target="_blank" class="blog-read en-only">Read →</a>
+          </div>
+        </div>
+        <div class="blog-card reveal">
+          <div class="blog-img">⭐</div>
+          <div class="blog-content">
+            <div class="blog-meta"><span class="blog-cat ar-only">جودة</span><span class="blog-cat en-only">Quality</span><span class="ar-only">• 4 دقايق</span><span class="en-only">• 4 min</span></div>
+            <h3 class="ar-only">ليه ثبات الجودة أهم من جودة المنتج نفسه؟</h3>
+            <h3 class="en-only">Why Consistency is More Important Than Product Quality Itself?</h3>
+            <p class="ar-only">العميل مش بيدور على أحسن تجربة — بيدور على التجربة اللي يقدر يتوقعها في كل مرة</p>
+            <p class="en-only">Customers don't look for the best experience — they look for the experience they can predict every time</p>
+            <a href="https://form.typeform.com/to/F0duFgNU" target="_blank" class="blog-read ar-only">اقرأ →</a>
+            <a href="https://form.typeform.com/to/F0duFgNU" target="_blank" class="blog-read en-only">Read →</a>
+          </div>
+        </div>
+        <div class="blog-card reveal">
+          <div class="blog-img">🏗️</div>
+          <div class="blog-content">
+            <div class="blog-meta"><span class="blog-cat ar-only">SOPs</span><span class="blog-cat en-only">SOPs</span><span class="ar-only">• 8 دقايق</span><span class="en-only">• 8 min</span></div>
+            <h3 class="ar-only">إزاي تكتب SOPs فعلاً تتطبق ومش مجرد ورق</h3>
+            <h3 class="en-only">How to Write SOPs That Actually Get Implemented, Not Just Filed</h3>
+            <p class="ar-only">السر مش في الكتابة — في التصميم، والتدريب، والمتابعة اللي بتيجي بعده</p>
+            <p class="en-only">The secret isn't in the writing — it's in the design, training, and follow-up that comes after</p>
+            <a href="https://form.typeform.com/to/F0duFgNU" target="_blank" class="blog-read ar-only">اقرأ →</a>
+            <a href="https://form.typeform.com/to/F0duFgNU" target="_blank" class="blog-read en-only">Read →</a>
+          </div>
+        </div>
+        <div class="blog-card reveal">
+          <div class="blog-img">🚀</div>
+          <div class="blog-content">
+            <div class="blog-meta"><span class="blog-cat ar-only">توسع</span><span class="blog-cat en-only">Growth</span><span class="ar-only">• 10 دقايق</span><span class="en-only">• 10 min</span></div>
+            <h3 class="ar-only">قبل ما تفتح فرع تاني — اسأل نفسك الأسئلة دي</h3>
+            <h3 class="en-only">Before Opening a Second Branch — Ask Yourself These Questions</h3>
+            <p class="ar-only">التوسع قبل الأوان دمّر كتير من المطاعم الناجحة — اعرف إمتى تكون جاهز فعلاً</p>
+            <p class="en-only">Premature expansion has destroyed many successful restaurants — know when you're truly ready</p>
+            <a href="https://form.typeform.com/to/F0duFgNU" target="_blank" class="blog-read ar-only">اقرأ →</a>
+            <a href="https://form.typeform.com/to/F0duFgNU" target="_blank" class="blog-read en-only">Read →</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
+
+<!-- ============ QUIZ PAGE ============ -->
+<div class="page" id="page-quiz">
+  <div class="quiz-hero">
+    <div class="container">
+      <span class="tag ar-only">🎯 اختبار مجاني</span>
+      <span class="tag en-only">🎯 Free Quiz</span>
+      <h1 class="heading-xl ar-only">اكتشف المشكلة الحقيقية في مطعمك</h1>
+      <h1 class="heading-xl en-only">Discover the Real Problem in Your Restaurant</h1>
+      <p style="color:var(--gray3);font-size:17px;max-width:600px;margin:16px auto 0;" class="ar-only">اختبار ٣ دقايق — نتيجة بتبين وين بالظبط مطعمك محتاج تشتغل عليه دلوقتي</p>
+      <p style="color:var(--gray3);font-size:17px;max-width:600px;margin:16px auto 0;" class="en-only">3-minute quiz — results that show exactly where your restaurant needs work right now</p>
+      <div class="quiz-benefits">
+        <div class="quiz-benefit">
+          <div class="icon">⚡</div>
+          <h4 class="ar-only">سريع — ٣ دقايق بس</h4>
+          <h4 class="en-only">Quick — Only 3 Minutes</h4>
+          <p class="ar-only">أسئلة بسيطة ومباشرة عن مطعمك</p>
+          <p class="en-only">Simple, direct questions about your restaurant</p>
+        </div>
+        <div class="quiz-benefit">
+          <div class="icon">🎯</div>
+          <h4 class="ar-only">دقيق — نتيجة مخصصة</h4>
+          <h4 class="en-only">Precise — Customized Results</h4>
+          <p class="ar-only">مش نتايج عامة — تحليل لحالتك تحديداً</p>
+          <p class="en-only">Not generic results — analysis of your specific situation</p>
+        </div>
+        <div class="quiz-benefit">
+          <div class="icon">🆓</div>
+          <h4 class="ar-only">مجاني تماماً</h4>
+          <h4 class="en-only">Completely Free</h4>
+          <p class="ar-only">بدون أي التزامات أو بيانات بنك</p>
+          <p class="en-only">No commitments or payment required</p>
+        </div>
+      </div>
+      <div style="display:flex;gap:14px;justify-content:center;flex-wrap:wrap;margin-bottom:48px;">
+        <a href="https://form.typeform.com/to/F0duFgNU" target="_blank" class="btn btn-primary btn-lg ar-only">🎯 ابدأ الاختبار دلوقتي</a>
+        <a href="https://form.typeform.com/to/F0duFgNU" target="_blank" class="btn btn-primary btn-lg en-only">🎯 Start the Quiz Now</a>
+        <a href="https://wa.me/201044008477" target="_blank" class="btn btn-whatsapp btn-lg">💬 WhatsApp</a>
+      </div>
+    </div>
+  </div>
+  <section class="section-sm">
+    <div class="container">
+      <div class="typeform-wrapper">
+        <iframe
+          src="https://form.typeform.com/to/F0duFgNU"
+          width="100%"
+          height="600"
+          frameborder="0"
+          style="border:none;width:100%;height:600px;"
+          allow="camera; microphone; autoplay; encrypted-media;"
+        ></iframe>
+      </div>
+    </div>
+  </section>
+</div>
+
+<!-- ============ BOOKING PAGE ============ -->
+<div class="page" id="page-booking">
+  <div class="about-hero">
+    <div class="container" style="text-align:center;">
+      <span class="tag ar-only">📅 احجز استشارة</span>
+      <span class="tag en-only">📅 Book a Call</span>
+      <h1 class="heading-xl ar-only">احجز استشارة مجانية</h1>
+      <h1 class="heading-xl en-only">Book a Free Consultation</h1>
+      <p style="color:var(--gray3);font-size:17px;max-width:500px;margin:16px auto 0;" class="ar-only">كلمنا عن مطعمك — وهنوريك فين الفرص اللي ممكن تغير الأرقام</p>
+      <p style="color:var(--gray3);font-size:17px;max-width:500px;margin:16px auto 0;" class="en-only">Tell us about your restaurant — and we'll show you where the opportunities are to change the numbers</p>
+    </div>
+  </div>
+  <section class="section">
+    <div class="container">
+      <div class="booking-card reveal">
+        <div class="booking-icon">📅</div>
+        <h2 class="ar-only" style="font-size:1.8rem;margin-bottom:12px;">استشارة مجانية ٣٠ دقيقة</h2>
+        <h2 class="en-only" style="font-size:1.8rem;margin-bottom:12px;">Free 30-Minute Consultation</h2>
+        <p style="color:var(--gray3);margin-bottom:32px;" class="ar-only">
+          هتكلمنا عن مطعمك، تحدياتك، وأهدافك — وهنقدر نحدد مع بعض الخطوة الجاية الأنسب ليك
+        </p>
+        <p style="color:var(--gray3);margin-bottom:32px;" class="en-only">
+          You'll tell us about your restaurant, challenges, and goals — and we'll identify together the most appropriate next step for you
+        </p>
+        <a href="https://form.typeform.com/to/F0duFgNU" target="_blank" class="btn btn-primary btn-lg" style="margin-bottom:16px;width:100%;justify-content:center;" class="ar-only">
+          📅 احجز موعدك دلوقتي
+        </a>
+        <a href="https://form.typeform.com/to/F0duFgNU" target="_blank" class="btn btn-primary btn-lg" style="margin-bottom:16px;width:100%;justify-content:center;" class="en-only">
+          📅 Book Your Appointment Now
+        </a>
+      </div>
+      <div style="max-width:700px;margin:40px auto 0;">
+        <h3 style="margin-bottom:20px;text-align:center;" class="ar-only">أو تواصل معنا مباشرة</h3>
+        <h3 style="margin-bottom:20px;text-align:center;" class="en-only">Or Contact Us Directly</h3>
+        <a href="https://wa.me/201044008477" target="_blank" class="contact-method">
+          <div class="contact-method-icon" style="background:rgba(37,211,102,0.1);font-size:24px;">💬</div>
+          <div class="contact-method-text">
+            <h4>WhatsApp</h4>
+            <p>01044008477</p>
+          </div>
+          <span style="margin-right:auto;margin-left:0;color:var(--green-light);">→</span>
+        </a>
+        <a href="tel:+201044008477" class="contact-method">
+          <div class="contact-method-icon" style="background:rgba(31,122,99,0.1);font-size:24px;">📞</div>
+          <div class="contact-method-text">
+            <h4 class="ar-only">اتصل بينا</h4>
+            <h4 class="en-only">Call Us</h4>
+            <p>01044008477 / 01080474377</p>
+          </div>
+          <span style="margin-right:auto;margin-left:0;color:var(--green-light);">→</span>
+        </a>
+        <a href="mailto:Careeri.team@gmail.com" class="contact-method">
+          <div class="contact-method-icon" style="background:rgba(31,122,99,0.1);font-size:24px;">✉️</div>
+          <div class="contact-method-text">
+            <h4>Email</h4>
+            <p>Careeri.team@gmail.com</p>
+          </div>
+          <span style="margin-right:auto;margin-left:0;color:var(--green-light);">→</span>
+        </a>
+      </div>
+    </div>
+  </section>
+</div>
+
+<!-- ============ CONTACT PAGE ============ -->
+<div class="page" id="page-contact">
+  <div class="about-hero">
+    <div class="container">
+      <div class="section-header">
+        <span class="tag ar-only">📞 تواصل معنا</span>
+        <span class="tag en-only">📞 Contact Us</span>
+        <h1 class="heading-xl ar-only">إحنا هنا — كلمنا</h1>
+        <h1 class="heading-xl en-only">We're Here — Talk to Us</h1>
+      </div>
+    </div>
+  </div>
+  <section class="section">
+    <div class="container">
+      <div class="grid-2" style="gap:48px;align-items:start;">
+        <div>
+          <h2 class="heading-md" style="margin-bottom:24px;" class="ar-only">وسائل التواصل</h2>
+          <h2 class="heading-md" style="margin-bottom:24px;" class="en-only">Contact Methods</h2>
+          <a href="https://wa.me/201044008477" target="_blank" class="contact-method">
+            <div class="contact-method-icon" style="background:rgba(37,211,102,0.15);font-size:26px;">💬</div>
+            <div class="contact-method-text">
+              <h4>WhatsApp</h4>
+              <p>01044008477</p>
+            </div>
+          </a>
+          <a href="tel:+201044008477" class="contact-method">
+            <div class="contact-method-icon" style="background:rgba(31,122,99,0.1);font-size:26px;">📞</div>
+            <div class="contact-method-text">
+              <h4 class="ar-only">هاتف ١</h4>
+              <h4 class="en-only">Phone 1</h4>
+              <p>01044008477</p>
+            </div>
+          </a>
+          <a href="tel:+201080474377" class="contact-method">
+            <div class="contact-method-icon" style="background:rgba(31,122,99,0.1);font-size:26px;">📱</div>
+            <div class="contact-method-text">
+              <h4 class="ar-only">هاتف ٢</h4>
+              <h4 class="en-only">Phone 2</h4>
+              <p>01080474377</p>
+            </div>
+          </a>
+          <a href="mailto:Careeri.team@gmail.com" class="contact-method">
+            <div class="contact-method-icon" style="background:rgba(31,122,99,0.1);font-size:26px;">✉️</div>
+            <div class="contact-method-text">
+              <h4>Email</h4>
+              <p>Careeri.team@gmail.com</p>
+            </div>
+          </a>
+          <a href="https://www.linkedin.com/company/careeri-f-b-counsulting/" target="_blank" class="contact-method">
+            <div class="contact-method-icon" style="background:rgba(10,102,194,0.15);font-size:26px;">💼</div>
+            <div class="contact-method-text">
+              <h4>LinkedIn</h4>
+              <p>Careeri F&B Consulting</p>
+            </div>
+          </a>
+          <a href="https://www.facebook.com/share/1DS9tLSVFL/" target="_blank" class="contact-method">
+            <div class="contact-method-icon" style="background:rgba(24,119,242,0.15);font-size:26px;">📘</div>
+            <div class="contact-method-text">
+              <h4>Facebook</h4>
+              <p>Careeri F&B</p>
+            </div>
+          </a>
+        </div>
+        <div>
+          <div class="cta-band">
+            <h2 class="ar-only" style="font-size:1.8rem;">جاهز تبدأ؟</h2>
+            <h2 class="en-only" style="font-size:1.8rem;">Ready to Start?</h2>
+            <p class="ar-only">خد الاختبار المجاني واكتشف المشكلة الحقيقية في مطعمك</p>
+            <p class="en-only">Take the free quiz and discover the real problem in your restaurant</p>
+            <div class="cta-buttons" style="flex-direction:column;">
+              <a href="https://form.typeform.com/to/F0duFgNU" target="_blank" class="btn btn-primary btn-lg ar-only">🎯 ابدأ الاختبار المجاني</a>
+              <a href="https://form.typeform.com/to/F0duFgNU" target="_blank" class="btn btn-primary btn-lg en-only">🎯 Start the Free Quiz</a>
+              <a href="https://wa.me/201044008477" target="_blank" class="btn btn-whatsapp btn-lg">💬 WhatsApp</a>
+              <a href="https://form.typeform.com/to/F0duFgNU" target="_blank" class="btn btn-outline btn-lg ar-only">📅 احجز استشارة</a>
+              <a href="https://form.typeform.com/to/F0duFgNU" target="_blank" class="btn btn-outline btn-lg en-only">📅 Book Consultation</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <div class="footer-logo">CAREERI <span>F&B</span></div>
+        <p class="footer-desc ar-only">استشارات متخصصة في قطاع المطاعم والفنادق — بنساعدك تحسن أرباحك وتبني سيستم تشغيلي قوي</p>
+        <p class="footer-desc en-only">Specialized consulting for the restaurant and hospitality sector — we help you improve profits and build a strong operational system</p>
+        <div class="footer-social">
+          <a href="https://www.linkedin.com/company/careeri-f-b-counsulting/" target="_blank" class="social-btn">💼</a>
+          <a href="https://www.facebook.com/share/1DS9tLSVFL/" target="_blank" class="social-btn">📘</a>
+          <a href="https://wa.me/201044008477" target="_blank" class="social-btn">💬</a>
+          <a href="mailto:Careeri.team@gmail.com" class="social-btn">✉️</a>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h4 class="ar-only">الصفحات</h4>
+        <h4 class="en-only">Pages</h4>
+        <ul class="footer-links">
+          <li><a href="#" onclick="showPage('home')" class="ar-only">الرئيسية</a><a href="#" onclick="showPage('home')" class="en-only">Home</a></li>
+          <li><a href="#" onclick="showPage('about')" class="ar-only">عننا</a><a href="#" onclick="showPage('about')" class="en-only">About</a></li>
+          <li><a href="#" onclick="showPage('services')" class="ar-only">الخدمات</a><a href="#" onclick="showPage('services')" class="en-only">Services</a></li>
+          <li><a href="#" onclick="showPage('training')" class="ar-only">التدريب</a><a href="#" onclick="showPage('training')" class="en-only">Training</a></li>
+          <li><a href="#" onclick="showPage('insights')" class="ar-only">المقالات</a><a href="#" onclick="showPage('insights')" class="en-only">Insights</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4 class="ar-only">الخدمات</h4>
+        <h4 class="en-only">Services</h4>
+        <ul class="footer-links">
+          <li><a href="#" class="ar-only">تدقيق التشغيل</a><a href="#" class="en-only">Operations Audit</a></li>
+          <li><a href="#" class="ar-only">تدريب الفريق</a><a href="#" class="en-only">Staff Training</a></li>
+          <li><a href="#" class="ar-only">أنظمة الجودة</a><a href="#" class="en-only">Quality Systems</a></li>
+          <li><a href="#" class="ar-only">تطوير المنيو</a><a href="#" class="en-only">Menu Optimization</a></li>
+          <li><a href="#" class="ar-only">بناء SOPs</a><a href="#" class="en-only">SOP Development</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4 class="ar-only">تواصل</h4>
+        <h4 class="en-only">Contact</h4>
+        <ul class="footer-links">
+          <li><a href="tel:+201044008477">01044008477</a></li>
+          <li><a href="tel:+201080474377">01080474377</a></li>
+          <li><a href="mailto:Careeri.team@gmail.com">Careeri.team@gmail.com</a></li>
+          <li><a href="https://form.typeform.com/to/F0duFgNU" target="_blank" class="ar-only">احجز استشارة</a><a href="https://form.typeform.com/to/F0duFgNU" target="_blank" class="en-only">Book Consultation</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span class="ar-only">© 2025 CAREERI F&B Consulting — جميع الحقوق محفوظة</span>
+      <span class="en-only">© 2025 CAREERI F&B Consulting — All Rights Reserved</span>
+      <div style="display:flex;gap:14px;">
+        <a href="https://form.typeform.com/to/F0duFgNU" target="_blank" style="color:var(--green-light);text-decoration:none;font-size:12.5px;" class="ar-only">ابدأ الاختبار ←</a>
+        <a href="https://form.typeform.com/to/F0duFgNU" target="_blank" style="color:var(--green-light);text-decoration:none;font-size:12.5px;" class="en-only">Start Quiz ←</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<!-- WHATSAPP FLOAT -->
+<a href="https://wa.me/201044008477" target="_blank" class="whatsapp-float" title="WhatsApp">💬</a>
+
+<script>
+// ========== PAGE NAVIGATION ==========
+function showPage(pageId) {
+  document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+  const target = document.getElementById('page-' + pageId);
+  if (target) {
+    target.classList.add('active');
+    window.scrollTo({top:0, behavior:'smooth'});
+  }
+  // Update active nav link
+  document.querySelectorAll('.nav-links a').forEach(a => {
+    a.classList.remove('active');
+  });
+}
+
+// ========== LANGUAGE ==========
+let currentLang = 'ar';
+function toggleLang() {
+  currentLang = currentLang === 'ar' ? 'en' : 'ar';
+  const body = document.body;
+  if (currentLang === 'en') {
+    body.classList.remove('ar');
+    body.classList.add('en');
+    body.setAttribute('dir', 'ltr');
+    document.documentElement.setAttribute('lang', 'en');
+    document.documentElement.setAttribute('dir', 'ltr');
+    document.getElementById('langBtn').textContent = 'عربي';
+  } else {
+    body.classList.remove('en');
+    body.classList.add('ar');
+    body.setAttribute('dir', 'rtl');
+    document.documentElement.setAttribute('lang', 'ar');
+    document.documentElement.setAttribute('dir', 'rtl');
+    document.getElementById('langBtn').textContent = 'EN';
+  }
+}
+
+// ========== MOBILE MENU ==========
+function toggleMenu() {
+  const menu = document.getElementById('mobileMenu');
+  menu.classList.toggle('open');
+}
+
+// Close menu on outside click
+document.addEventListener('click', function(e) {
+  const menu = document.getElementById('mobileMenu');
+  const hamburger = document.getElementById('hamburger');
+  if (menu.classList.contains('open') && !menu.contains(e.target) && !hamburger.contains(e.target)) {
+    menu.classList.remove('open');
+  }
+});
+
+// ========== SCROLL REVEAL ==========
+const revealObserver = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('visible');
+    }
+  });
+}, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
+
+function initReveal() {
+  document.querySelectorAll('.reveal').forEach(el => {
+    revealObserver.observe(el);
+  });
+}
+initReveal();
+
+// Re-observe when page changes
+const pageObserver = new MutationObserver(initReveal);
+pageObserver.observe(document.body, { childList: true, subtree: true });
+
+// ========== NAV SCROLL ==========
+window.addEventListener('scroll', () => {
+  const nav = document.getElementById('navbar');
+  if (window.scrollY > 20) {
+    nav.style.background = 'rgba(15,15,15,0.97)';
+  } else {
+    nav.style.background = 'rgba(15,15,15,0.85)';
+  }
+});
+
+// Prevent default on hash links
+document.querySelectorAll('a[href="#"]').forEach(a => {
+  a.addEventListener('click', e => e.preventDefault());
+});
+</script>
+</body>
+</html>
